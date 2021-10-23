@@ -1,0 +1,1 @@
+# sprite-cloud-automation-framework-demo
