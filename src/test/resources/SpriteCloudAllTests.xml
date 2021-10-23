@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Sprite Cloud Automation Framework All">
+
+    <parameter name="environment" value="QA"/>
+    
+    <suite-files>
+        <suite-file path="SpriteCloudApiOnlyTests.xml"/>
+        <suite-file path="SpriteCloudWebOnlyTests.xml"/>
+    </suite-files>
+
+</suite>

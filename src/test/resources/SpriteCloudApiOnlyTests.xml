@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Sprite Cloud Automation Framework API Only">
+
+    <parameter name="environment" value="QA"/>
+
+    <test name="Post Pet Test">
+        <parameter name="platformType" value="API"/>
+
+        <classes>
+            <class name="com.sprite.cloud.automation.framework.api.functional.PostPetTest"/>
+        </classes>
+    </test>
+
+    <test name="Put Pet Test">
+        <parameter name="platformType" value="API"/>
+
+        <classes>
+            <class name="com.sprite.cloud.automation.framework.api.functional.PutPetTest"/>
+        </classes>
+    </test>
+
+</suite>
