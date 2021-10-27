@@ -1,0 +1,20 @@
+version: '3.7'
+services:
+  jenkins:
+    image: jenkins/jenkins:lts
+    logging:
+      driver: "json-file"
+      options:
+        max-file: "5"
+        max-size: "10m"
+    privileged: true
+    user: root
+    ports:
+      - 8083:8080
+      - 50003:50000
+    container_name: jenkins-master
+    volumes:
+      - ./jenkins-backup:/var/jenkins_home
+      - /var/run/docker.sock:/var/run/docker.sock
+    environment:
+      - JVM_OPTS=-Xmx8192m -Xmx8192m --handlerCountMax=300

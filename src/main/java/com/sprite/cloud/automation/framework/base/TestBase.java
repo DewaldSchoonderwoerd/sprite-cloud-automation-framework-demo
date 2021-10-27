@@ -38,7 +38,7 @@ public class TestBase {
     @BeforeClass(alwaysRun = true)
     public void setupDriver(@Optional(API) String platformType, @Optional(CHROME) String browserName) throws Exception {
         LOG.info("platformType: " + platformType);
-        LOG.info("browserName" + browserName);
+        LOG.info("browserName: " + browserName);
 
         if (platformType.toUpperCase().equals(WEB)) {
             switch (browserName.toUpperCase()) {

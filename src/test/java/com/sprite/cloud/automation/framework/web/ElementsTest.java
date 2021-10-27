@@ -29,7 +29,6 @@ public class ElementsTest extends TestBase {
     private void setup(@Optional(QA) String environment){
         url = WebPropertyUtils.getWebUrl("tools", environment);
 
-        driver.navigate().to(url + "/elements");
         LOG.info("Navigating to URL: " + url);
 
         elementsPage = new ElementsPage(driver);
