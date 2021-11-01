@@ -5,7 +5,7 @@
       <string>15</string>
     </parentIds>
     <id>16</id>
-    <descriptorId>org.jenkinsci.plugins.pipeline.modeldefinition.steps.EnvVarsForToolStep</descriptorId>
+    <descriptorId>org.jenkinsci.plugins.pipeline.modeldefinition.StepDefs.EnvVarsForToolStep</descriptorId>
   </node>
   <actions>
     <cps.a.ArgumentsActionImpl plugin="workflow-cps@2.94">

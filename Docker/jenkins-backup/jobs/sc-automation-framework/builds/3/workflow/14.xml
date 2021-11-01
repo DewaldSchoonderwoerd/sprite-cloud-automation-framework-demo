@@ -5,7 +5,7 @@
       <string>13</string>
     </parentIds>
     <id>14</id>
-    <descriptorId>org.jenkinsci.plugins.workflow.support.steps.StageStep</descriptorId>
+    <descriptorId>org.jenkinsci.plugins.workflow.support.StepDefs.StageStep</descriptorId>
   </node>
   <actions>
     <wf.a.BodyInvocationAction plugin="workflow-api@2.47"/>

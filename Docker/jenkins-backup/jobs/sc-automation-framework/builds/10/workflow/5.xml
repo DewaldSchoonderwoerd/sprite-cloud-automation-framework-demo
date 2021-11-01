@@ -5,7 +5,7 @@
       <string>4</string>
     </parentIds>
     <id>5</id>
-    <descriptorId>org.jenkinsci.plugins.workflow.support.steps.StageStep</descriptorId>
+    <descriptorId>org.jenkinsci.plugins.workflow.support.StepDefs.StageStep</descriptorId>
   </node>
   <actions>
     <s.a.LogStorageAction/>

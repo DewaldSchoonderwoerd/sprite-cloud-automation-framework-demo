@@ -20,10 +20,10 @@
         <stackTrace>
           <trace>hudson.plugins.git.GitSCM.determineRevisionToBuild(GitSCM.java:1157)</trace>
           <trace>hudson.plugins.git.GitSCM.checkout(GitSCM.java:1303)</trace>
-          <trace>org.jenkinsci.plugins.workflow.steps.scm.SCMStep.checkout(SCMStep.java:129)</trace>
-          <trace>org.jenkinsci.plugins.workflow.steps.scm.SCMStep$StepExecutionImpl.run(SCMStep.java:97)</trace>
-          <trace>org.jenkinsci.plugins.workflow.steps.scm.SCMStep$StepExecutionImpl.run(SCMStep.java:84)</trace>
-          <trace>org.jenkinsci.plugins.workflow.steps.SynchronousNonBlockingStepExecution.lambda$start$0(SynchronousNonBlockingStepExecution.java:47)</trace>
+          <trace>org.jenkinsci.plugins.workflow.StepDefs.scm.SCMStep.checkout(SCMStep.java:129)</trace>
+          <trace>org.jenkinsci.plugins.workflow.StepDefs.scm.SCMStep$StepExecutionImpl.run(SCMStep.java:97)</trace>
+          <trace>org.jenkinsci.plugins.workflow.StepDefs.scm.SCMStep$StepExecutionImpl.run(SCMStep.java:84)</trace>
+          <trace>org.jenkinsci.plugins.workflow.StepDefs.SynchronousNonBlockingStepExecution.lambda$start$0(SynchronousNonBlockingStepExecution.java:47)</trace>
           <trace>java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:515)</trace>
           <trace>java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)</trace>
           <trace>java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)</trace>

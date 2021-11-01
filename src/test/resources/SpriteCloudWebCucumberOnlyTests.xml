@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Sprite Cloud Automation Framework Web Only">
+
+    <parameter name="environment" value="QA"/>
+
+    <test name="Elements Test">
+        <parameter name="platformType" value="WEB"/>
+        <parameter name="browserName" value="CHROME"/>
+
+        <classes>
+            <class name="com.sprite.cloud.automation.framework.base.TestBase"/>
+        </classes>
+    </test>
+
+<!--    <test name="Check Box Test">-->
+<!--        <parameter name="platformType" value="WEB"/>-->
+<!--        <parameter name="browserName" value="CHROME"/>-->
+
+<!--        <classes>-->
+<!--            <class name="com.sprite.cloud.automation.framework.web.CheckBoxTest"/>-->
+<!--        </classes>-->
+<!--    </test>-->
+
+</suite>

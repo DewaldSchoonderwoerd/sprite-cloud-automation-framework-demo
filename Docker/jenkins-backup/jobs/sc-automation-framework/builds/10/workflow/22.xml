@@ -5,7 +5,7 @@
       <string>21</string>
     </parentIds>
     <id>22</id>
-    <descriptorId>org.jenkinsci.plugins.workflow.steps.CoreStep</descriptorId>
+    <descriptorId>org.jenkinsci.plugins.workflow.StepDefs.CoreStep</descriptorId>
   </node>
   <actions>
     <cps.a.ArgumentsActionImpl plugin="workflow-cps@2.94">

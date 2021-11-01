@@ -1,5 +1,8 @@
 package com.sprite.cloud.automation.framework.base;
 
+import com.sprite.cloud.automation.framework.base.web.WebPropertyUtils;
+import io.cucumber.testng.AbstractTestNGCucumberTests;
+import io.cucumber.testng.CucumberOptions;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -17,13 +20,27 @@ import static com.sprite.cloud.automation.framework.base.constants.Environments.
 import static com.sprite.cloud.automation.framework.base.constants.PlatformTypes.API;
 import static com.sprite.cloud.automation.framework.base.constants.PlatformTypes.WEB;
 
-public class TestBase {
+@CucumberOptions(
+        features = {"src/test/resources/features"},
+        glue = {"StepDefs"},
+        plugin = {
+                "pretty",
+                "json:target/cucumberJson/cucumber.json",
+                "html:target/cucumberHtml/cucumber.html"
+        }
+)
+public class TestBase extends AbstractTestNGCucumberTests {
 
     public static final Properties PROPERTIES = new Properties();
     private static final Logger LOG = LoggerFactory.getLogger(TestBase.class);
     public static WebDriver driver;
     public static String environment;
 
+    @Override
+    @DataProvider(parallel = true)
+    public Object[][] scenarios() {
+        return super.scenarios();
+    }
 
     @BeforeSuite(alwaysRun = true)
     @Parameters({"environment"})
@@ -39,7 +56,6 @@ public class TestBase {
     public void setupDriver(@Optional(API) String platformType, @Optional(CHROME) String browserName) throws Exception {
         LOG.info("platformType: " + platformType);
         LOG.info("browserName: " + browserName);
-
         if (platformType.toUpperCase().equals(WEB)) {
             switch (browserName.toUpperCase()) {
                 case CHROME:
@@ -58,7 +74,6 @@ public class TestBase {
             driver.manage().timeouts().scriptTimeout(Duration.ofSeconds(30));
             driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(60));
             driver.manage().window().maximize();
-
             LOG.info("Completed setting up Selenium Driver for browser: " + browserName);
         } else {
             LOG.info("API only tests");
