@@ -26,6 +26,8 @@
         <webdrivermanager.version>5.0.3</webdrivermanager.version>
         <cucumber.version>7.0.0</cucumber.version>
         <cucumber.testng.version>7.0.0</cucumber.testng.version>
+        <faker.version>1.0.2</faker.version>
+        <passy.version>1.6.1</passy.version>
     </properties>
 
     <dependencies>
@@ -90,17 +92,31 @@
             <version>${webdrivermanager.version}</version>
         </dependency>
 
+        <!-- https://mvnrepository.com/artifact/com.github.javafaker/javafaker -->
         <dependency>
-            <groupId>io.cucumber</groupId>
-            <artifactId>cucumber-java</artifactId>
-            <version>${cucumber.version}</version>
+            <groupId>com.github.javafaker</groupId>
+            <artifactId>javafaker</artifactId>
+            <version>${faker.version}</version>
         </dependency>
 
+        <!-- https://mvnrepository.com/artifact/org.webjars/jquery-passy -->
         <dependency>
-            <groupId>io.cucumber</groupId>
-            <artifactId>cucumber-testng</artifactId>
-            <version>${cucumber.testng.version}</version>
+            <groupId>org.passay</groupId>
+            <artifactId>passay</artifactId>
+            <version>${passy.version}</version>
         </dependency>
+
+        <!--        <dependency>-->
+<!--            <groupId>io.cucumber</groupId>-->
+<!--            <artifactId>cucumber-java</artifactId>-->
+<!--            <version>${cucumber.version}</version>-->
+<!--        </dependency>-->
+
+<!--        <dependency>-->
+<!--            <groupId>io.cucumber</groupId>-->
+<!--            <artifactId>cucumber-testng</artifactId>-->
+<!--            <version>${cucumber.testng.version}</version>-->
+<!--        </dependency>-->
 
     </dependencies>
 
@@ -114,6 +130,8 @@
                     <argLine>
                         -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar"
                     </argLine>
+                    <suiteXmlFiles>${file}</suiteXmlFiles>
+<!--                    <suiteXmlFiles>src/test/resources/SpriteCloudWebCucumberOnlyTests.xml </suiteXmlFiles>-->
                 </configuration>
                 <dependencies>
                     <dependency>

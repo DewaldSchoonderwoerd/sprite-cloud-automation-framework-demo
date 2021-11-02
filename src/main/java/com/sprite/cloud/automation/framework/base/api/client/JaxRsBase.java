@@ -4,6 +4,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.jaxrs.json.JacksonJsonProvider;
 import com.sprite.cloud.automation.framework.base.api.client.interceptors.HttpLogger;
 import com.sprite.cloud.automation.framework.base.api.resource.petstore.v2.PetResource;
+import com.sprite.cloud.automation.framework.base.api.resource.toolsqa.account.v1.AccountResource;
 import org.apache.cxf.jaxrs.client.JAXRSClientFactory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -18,6 +19,7 @@ public class JaxRsBase {
     private static final Logger LOG = LoggerFactory.getLogger(JaxRsBase.class);
 
     private static final String PET_STORE_KEY = "swagger.pet.shop";
+    private static final String TOOLS_QA_KEY = "tools.api";
 
     public static JaxRsBase baseRequest = null;
 
@@ -52,5 +54,9 @@ public class JaxRsBase {
 
     public PetResource getPetResource(){
         return getResource(PetResource.class, PET_STORE_KEY);
+    }
+
+    public AccountResource getAccountResource() {
+        return getResource(AccountResource.class, TOOLS_QA_KEY);
     }
 }

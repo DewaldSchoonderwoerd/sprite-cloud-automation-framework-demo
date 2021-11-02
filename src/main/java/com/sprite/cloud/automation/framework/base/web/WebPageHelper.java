@@ -27,8 +27,8 @@ public class WebPageHelper {
     protected WebDriver driver;
     protected WebDriverWait wait;
 
-    protected static final int DRIVER_DEFAULT_WAIT_TIMEOUT = 40;
-    protected static final long SLEEP_IN_BETWEEN_POLLS = 1000L;
+    protected static final int DRIVER_DEFAULT_WAIT_TIMEOUT = 20;
+    protected static final int SLEEP_IN_BETWEEN_POLLS = 500;
 
     public WebPageHelper(WebDriver driver) {
         this.driver = driver;
@@ -98,8 +98,13 @@ public class WebPageHelper {
         });
     }
 
+    public void waitForAlertToBePresent() {
+        wait.ignoring(NoAlertPresentException.class)
+            .until(ExpectedConditions.alertIsPresent());
+    }
+
     public void waitForElement(WebElement element) {
-        WebDriverWait wait = new WebDriverWait(driver, DRIVER_DEFAULT_WAIT_TIMEOUT);
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(DRIVER_DEFAULT_WAIT_TIMEOUT));
         try {
             wait.until(ExpectedConditions.visibilityOf(element));
         } catch (NoSuchElementException ex) {
@@ -388,7 +393,6 @@ public class WebPageHelper {
 
     public boolean verifyElementPresent(WebElement element) {
         try {
-            delay(1);
             LOG.info("Verifying Element : " + element);
             return (wait.until(ExpectedConditions.visibilityOf(element))).isDisplayed();
         } catch (Exception e) {
@@ -414,20 +418,20 @@ public class WebPageHelper {
         return findElementWhenReady(element).getText();
     }
 
-    protected WebElement findElementWhenReady(WebElement el) {
+    protected WebElement findElementWhenReady(WebElement element) {
         try {
             return wait.until((Function<WebDriver, WebElement>) driver -> {
                 try {
-                    if (isElementDisplayedOrEnabled(el)) {
-                        return el;
+                    if (isElementDisplayedOrEnabled(element)) {
+                        return element;
                     }
                 } catch (Exception e) {
-                    LOG.warn("Not Able to match any element :" + el);
+                    LOG.warn("Not Able to match any element :" + element);
                 }
                 return null;
             });
         } catch (Exception e) {
-            LOG.error("Exception on : " + el);
+            LOG.error("Exception on : " + element);
         }
         return null;
     }
@@ -464,12 +468,12 @@ public class WebPageHelper {
      * Determines the element ready state using rendered web element isDisplayed()
      * or element isEnabled() based on the driver type.
      */
-    private boolean isElementDisplayedOrEnabled(WebElement el) {
-        if (el.isEnabled()) {
-            LOG.info("Element is enabled [" + el + "]");
+    private boolean isElementDisplayedOrEnabled(WebElement element) {
+        if (element.isEnabled()) {
+            LOG.info("Element is enabled [" + element + "]");
             return true;
         }
-        LOG.warn("Element not enabled [" + el + "]");
+        LOG.warn("Element not enabled [" + element + "]");
         return false;
     }
 
@@ -610,7 +614,6 @@ public class WebPageHelper {
 
     public void waitUntilInvisibilityOfElementLocated(String type, String value) {
         try {
-            delay(1.5);
             wait.until(ExpectedConditions.invisibilityOfElementLocated(getByTypeAndValue(type, value)));
             LOG.info(value + " was dismissed!!!");
         } catch (Exception e) {
@@ -620,7 +623,6 @@ public class WebPageHelper {
 
     public void waitUntilInvisibilityOfElement(WebElement webElement) {
         try {
-            delay(1.5);
             wait.until(ExpectedConditions.invisibilityOfElementLocated((By.xpath("//div[contains(@class,'loading-text')]"))));
             LOG.info(webElement + " was dismissed!!!");
         } catch (Exception e) {

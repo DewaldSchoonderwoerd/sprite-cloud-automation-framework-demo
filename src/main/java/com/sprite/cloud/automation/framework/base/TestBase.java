@@ -1,46 +1,30 @@
 package com.sprite.cloud.automation.framework.base;
 
-import com.sprite.cloud.automation.framework.base.web.WebPropertyUtils;
-import io.cucumber.testng.AbstractTestNGCucumberTests;
-import io.cucumber.testng.CucumberOptions;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.firefox.FirefoxOptions;
+import org.openqa.selenium.remote.RemoteWebDriver;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.testng.annotations.*;
 
+import java.net.URL;
 import java.time.Duration;
 import java.util.Properties;
 
-import static com.sprite.cloud.automation.framework.base.constants.BrowserTypes.CHROME;
-import static com.sprite.cloud.automation.framework.base.constants.BrowserTypes.FIREFOX;
+import static com.sprite.cloud.automation.framework.base.constants.BrowserTypes.*;
 import static com.sprite.cloud.automation.framework.base.constants.Environments.QA;
-import static com.sprite.cloud.automation.framework.base.constants.PlatformTypes.API;
 import static com.sprite.cloud.automation.framework.base.constants.PlatformTypes.WEB;
 
-@CucumberOptions(
-        features = {"src/test/resources/features"},
-        glue = {"StepDefs"},
-        plugin = {
-                "pretty",
-                "json:target/cucumberJson/cucumber.json",
-                "html:target/cucumberHtml/cucumber.html"
-        }
-)
-public class TestBase extends AbstractTestNGCucumberTests {
+public class TestBase {
 
     public static final Properties PROPERTIES = new Properties();
     private static final Logger LOG = LoggerFactory.getLogger(TestBase.class);
     public static WebDriver driver;
     public static String environment;
-
-    @Override
-    @DataProvider(parallel = true)
-    public Object[][] scenarios() {
-        return super.scenarios();
-    }
 
     @BeforeSuite(alwaysRun = true)
     @Parameters({"environment"})
@@ -50,24 +34,36 @@ public class TestBase extends AbstractTestNGCucumberTests {
         TestBase.environment = environment;
     }
 
-
     @Parameters({"platformType", "browserName"})
     @BeforeClass(alwaysRun = true)
-    public void setupDriver(@Optional(API) String platformType, @Optional(CHROME) String browserName) throws Exception {
+    public void setupDriver(@Optional(WEB) String platformType, @Optional(CHROME) String browserName) throws Exception {
         LOG.info("platformType: " + platformType);
         LOG.info("browserName: " + browserName);
         if (platformType.toUpperCase().equals(WEB)) {
             switch (browserName.toUpperCase()) {
                 case CHROME:
+                    ChromeOptions chromeOptions = new ChromeOptions();
+                    chromeOptions.addArguments("start-maximized");
+                    chromeOptions.addArguments("disable-infobars");
+                    chromeOptions.addArguments("--disable-extensions");
                     WebDriverManager.chromedriver().setup();
-                    driver = new ChromeDriver();
+                    driver = new ChromeDriver(chromeOptions);
                     break;
                 case FIREFOX:
+                    FirefoxOptions firefoxOptions = new FirefoxOptions();
                     WebDriverManager.firefoxdriver().setup();
-                    driver = new FirefoxDriver();
+                    driver = new FirefoxDriver(firefoxOptions);
+                    break;
+                case CHROME_REMOTE:
+                    ChromeOptions chromeRemoteOptions = new ChromeOptions();
+                    driver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), chromeRemoteOptions);
+                    break;
+                case FIREFOX_REMOTE:
+                    FirefoxOptions firefoxRemoteOptions = new FirefoxOptions();
+                    driver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), firefoxRemoteOptions);
                     break;
                 default:
-                    throw new Exception("Unknown browser: " + browserName + "\n it either does not exist or needs to be set up.");
+                    throw new Exception("Unknown browser - " + browserName + "\n it either does not exist or needs to be set up.");
             }
 
             driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));

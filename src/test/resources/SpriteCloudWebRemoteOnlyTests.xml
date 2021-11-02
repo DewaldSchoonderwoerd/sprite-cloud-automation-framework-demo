@@ -6,7 +6,7 @@
 
     <test name="Chrome Login Test">
         <parameter name="platformType" value="WEB"/>
-        <parameter name="browserName" value="CHROME"/>
+        <parameter name="browserName" value="CHROME-REMOTE"/>
 
         <classes>
             <class name="com.sprite.cloud.automation.framework.web.bookstore.LoginTest"/>
@@ -15,7 +15,7 @@
 
     <test name="Firefox Login Test">
         <parameter name="platformType" value="WEB"/>
-        <parameter name="browserName" value="FIREFOX"/>
+        <parameter name="browserName" value="FIREFOX-REMOTE"/>
 
         <classes>
             <class name="com.sprite.cloud.automation.framework.web.bookstore.LoginTest"/>
@@ -24,7 +24,7 @@
 
     <test name="Add Book To Collection Test">
         <parameter name="platformType" value="WEB"/>
-        <parameter name="browserName" value="CHROME"/>
+        <parameter name="browserName" value="CHROME-REMOTE"/>
 
         <classes>
             <class name="com.sprite.cloud.automation.framework.web.bookstore.AddBookToCollectionTest"/>

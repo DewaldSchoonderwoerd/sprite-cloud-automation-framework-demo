@@ -4,14 +4,14 @@ import com.sprite.cloud.automation.framework.base.TestBase;
 import com.sprite.cloud.automation.framework.base.api.models.petstore.v2.postPet.request.PostPetRequest;
 import com.sprite.cloud.automation.framework.base.api.models.petstore.v2.postPet.request.Tag;
 import com.sprite.cloud.automation.framework.base.api.models.petstore.v2.postPet.response.PostPetResponse;
-import com.sprite.cloud.automation.framework.base.api.service.PetService;
+import com.sprite.cloud.automation.framework.base.api.service.petstore.PetService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.testng.annotations.Test;
 
 import static com.sprite.cloud.automation.framework.base.constants.TestGroups.REGRESSION;
 import static com.sprite.cloud.automation.framework.base.constants.TestGroups.SMOKE;
-import static com.sprite.cloud.automation.framework.base.utilities.Random.randomIntInRange;
+import static com.sprite.cloud.automation.framework.base.utilities.RandomValues.randomIntInRange;
 
 public class PostPetTest extends TestBase {
 

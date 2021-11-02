@@ -6,7 +6,7 @@
 
     <suite-files >
         <suite-file path="SpriteCloudApiOnlyTests.xml"/>
-        <suite-file path="SpriteCloudWebOnlyTests.xml"/>
+        <suite-file path="SpriteCloudWebRemoteOnlyTests.xml"/>
     </suite-files>
 
 </suite>
