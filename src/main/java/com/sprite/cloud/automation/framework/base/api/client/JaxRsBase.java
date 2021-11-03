@@ -43,7 +43,6 @@ public class JaxRsBase {
         String baseUrl = EndpointLoader.getApiEndpoint(key, env);
         List<Object> providers = new ArrayList<>();
         providers.add(new JacksonJsonProvider(objectMapper));
-//        providers.add(new AllureHttpInterceptor());
         providers.add(new HttpLogger());
         return JAXRSClientFactory.create(baseUrl, resourceClass, providers);
     }
