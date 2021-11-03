@@ -12,10 +12,13 @@
         <maven.compiler.source>8</maven.compiler.source>
         <maven.compiler.target>8</maven.compiler.target>
 
+        <timestamp>${maven.build.timestamp}</timestamp>
+        <maven.build.timestamp.format>yyyy-MM-dd_HH-mm</maven.build.timestamp.format>
+        <reportsDir>${project.basedir}/src/test/resources/reports/${timestamp}</reportsDir>
+
         <testng.version>7.1.0</testng.version>
         <commons-io.version>2.11.0</commons-io.version>
         <aspectj.version>1.8.10</aspectj.version>
-
         <allure2.version>2.13.9</allure2.version>
         <cxf-rs.version>3.4.3</cxf-rs.version>
         <logback.version>1.2.3</logback.version>
@@ -130,8 +133,10 @@
                     <argLine>
                         -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar"
                     </argLine>
+                    <reportsDirectory>${reportsDir}</reportsDirectory>
                     <suiteXmlFiles>${file}</suiteXmlFiles>
 <!--                    <suiteXmlFiles>src/test/resources/SpriteCloudWebCucumberOnlyTests.xml </suiteXmlFiles>-->
+                    <redirectTestOutputToFile>true</redirectTestOutputToFile>
                 </configuration>
                 <dependencies>
                     <dependency>
