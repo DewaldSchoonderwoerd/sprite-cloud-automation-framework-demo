@@ -20,6 +20,11 @@
         // Install the Maven version configured as &quot;M3&quot; and add it to the path.
         maven &quot;maven-3.8.3&quot;
     }
+    
+    environment{
+        API_KEY = &apos;Njc4OTA5MGVlY2QyNDhlYTBjY2MzN2E4MjgzNmRmMjI4ZWM4OWFiZDE1ZDY1OWUyZWU2MmFhOGNkMjBiNDVlYTQ5&apos;
+        PROFILE_ID = &apos;3792&apos;
+    }
 
     stages {
         stage(&apos;Build&apos;) {
@@ -28,7 +33,7 @@
                 git branch: &apos;main&apos;, url: &apos;https://github.com/DewaldSchoonderwoerd/sprite-cloud-automation-framework-demo.git&apos;
 
                 // Run Maven on a Unix agent.
-                sh &quot;mvn -Dmaven.test.failure.ignore=true clean install&quot;
+                sh &quot;mvn -Dmaven.test.failure.ignore=true clean install -Dfile=src/test/resources/SpriteCloudApiOnlyTests.xml&quot;
 
                 // To run Maven on a Windows agent, use
                 // bat &quot;mvn -Dmaven.test.failure.ignore=true clean package&quot;
@@ -38,8 +43,26 @@
                 // If Maven was able to run the tests, even if some of the test
                 // failed, record the test results and archive the jar file.
                 success {
-                    junit &apos;**/target/surefire-reports/TEST-*.xml&apos;
+                    junit &apos;**/reports/*/TEST-*.xml&apos;
                     archiveArtifacts &apos;target/*.jar&apos;
+                }
+            }
+        }
+        
+        stage(&apos;Upload result to Calliope&apos;){
+            steps{
+                script{
+                    final def (String rollbackResponse, String rollbackCode) =
+                    sh(script:
+                        &quot;curl -s -w &apos;\n%{response_code}&apos; -X POST --header &apos;accept: application/json&apos; --header &apos;x-api-key: Njc4OTA5MGVlY2QyNDhlYTBjY2MzN2E4MjgzNmRmMjI4ZWM4OWFiZDE1ZDY1OWUyZWU2MmFhOGNkMjBiNDVlYTQ5&apos; --header &apos;Content-Type: multipart/form-data&apos; --form &apos;file[]=@\&quot;\&quot;&apos; --form &apos;os=\&quot;windows\&quot;&apos; --form &apos;platform=\&quot;web\&quot;&apos; --form &apos;build=\&quot;50\&quot;&apos; --form &apos;envelope=\&quot;false\&quot;&apos; --form &apos;smart=\&quot;true\&quot;&apos; https://app.calliope.pro/api/v2/profile/3792/import/testng -v&quot;,
+                        
+                        returnStdout: true
+                    )
+                    .trim()
+                    .tokenize(&quot;\n&quot;)
+                    
+                    echo &quot;Trigger Rollback HTTP response status ${rollbackCode}&quot;
+                    echo &quot;Trigger Rollback HTTP response ${rollbackResponse}&quot;
                 }
             }
         }
