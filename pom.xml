@@ -136,7 +136,7 @@
                     <reportsDirectory>${reportsDir}</reportsDirectory>
                     <suiteXmlFiles>${file}</suiteXmlFiles>
 <!--                    <suiteXmlFiles>src/test/resources/SpriteCloudWebCucumberOnlyTests.xml </suiteXmlFiles>-->
-                    <redirectTestOutputToFile>true</redirectTestOutputToFile>
+<!--                    <redirectTestOutputToFile>true</redirectTestOutputToFile>-->
                 </configuration>
                 <dependencies>
                     <dependency>
