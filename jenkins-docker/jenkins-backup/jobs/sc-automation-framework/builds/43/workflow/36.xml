@@ -1,0 +1,62 @@
+<?xml version='1.1' encoding='UTF-8'?>
+<Tag plugin="workflow-support@3.8">
+  <node class="cps.n.StepAtomNode" plugin="workflow-cps@2.94">
+    <parentIds>
+      <string>35</string>
+    </parentIds>
+    <id>36</id>
+    <descriptorId>org.jenkinsci.plugins.workflow.multibranch.JobPropertyStep</descriptorId>
+  </node>
+  <actions>
+    <cps.a.ArgumentsActionImpl plugin="workflow-cps@2.94">
+      <arguments>
+        <entry>
+          <string>properties</string>
+          <list>
+            <org.jenkinsci.plugins.workflow.cps.UninstantiatedDescribableWithInterpolation>
+              <symbol>parameters</symbol>
+              <arguments class="linked-hash-map">
+                <entry>
+                  <string>&lt;anonymous&gt;</string>
+                  <list>
+                    <org.jenkinsci.plugins.workflow.cps.UninstantiatedDescribableWithInterpolation>
+                      <symbol>choice</symbol>
+                      <arguments class="linked-hash-map">
+                        <entry>
+                          <string>choices</string>
+                          <list>
+                            <string>API_ONLY</string>
+                            <string>ALL</string>
+                            <string>WEB_ONLY</string>
+                          </list>
+                        </entry>
+                        <entry>
+                          <string>description</string>
+                          <string>SpriteCloudApiOnlyTests.xml API_ONLY
+                                            SpriteCloudCICDSuite.xml ALL
+                                            SpriteCloudWebRemoteOnlyTests.xml  WEB_ONLY</string>
+                        </entry>
+                        <entry>
+                          <string>name</string>
+                          <string>testSuite</string>
+                        </entry>
+                      </arguments>
+                      <interpolatedStrings/>
+                    </org.jenkinsci.plugins.workflow.cps.UninstantiatedDescribableWithInterpolation>
+                  </list>
+                </entry>
+              </arguments>
+              <interpolatedStrings/>
+            </org.jenkinsci.plugins.workflow.cps.UninstantiatedDescribableWithInterpolation>
+          </list>
+        </entry>
+      </arguments>
+      <sensitiveVariables/>
+      <isUnmodifiedBySanitization>true</isUnmodifiedBySanitization>
+    </cps.a.ArgumentsActionImpl>
+    <wf.a.TimingAction plugin="workflow-api@2.47">
+      <startTime>1636042701938</startTime>
+    </wf.a.TimingAction>
+    <s.a.LogStorageAction/>
+  </actions>
+</Tag>

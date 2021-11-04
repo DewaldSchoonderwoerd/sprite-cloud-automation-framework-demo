@@ -1,0 +1,13 @@
+commit 7ac0cd4402e7ff8c0c88562b78babea600c0fe65
+tree 212b7b57cfa323f4dcfee05cb9ca4bf243a37965
+parent c269485611d76d8ca43fb1b4974e20a18ac76789
+author DewaldSchoonderwoerd <dewald.schoonderwoerd@gmail.com> 2021-11-04 22:21:08 +0200
+committer DewaldSchoonderwoerd <dewald.schoonderwoerd@gmail.com> 2021-11-04 22:21:08 +0200
+
+    Added remote execution
+
+
+:100644 100644 1240c8bb285da10bcfe7b4ec8c9b5cbbf3341d75 1882ea37a51127f691ab08f12809fdd0de2ee92d M	jenkins-docker/jenkins-backup/jobs/sc-automation-framework/builds/permalinks
+:100644 100644 c3f407c0955bb5738e40a82664c79b63f04a9adb e1617e842ad9a038ec2d8332c6084300a43cb09d M	jenkins-docker/jenkins-backup/jobs/sc-automation-framework/nextBuildNumber
+:160000 160000 a56718a709a7f049035dca00a5d4985a11b2a22b c269485611d76d8ca43fb1b4974e20a18ac76789 M	jenkins-docker/jenkins-backup/workspace/sc-automation-framework
+:100644 100644 8fc5d35ab063426ce6fcddf681f44c02b75570a7 93ee93347777c8b221a48273b9d041a612613b42 M	pom.xml

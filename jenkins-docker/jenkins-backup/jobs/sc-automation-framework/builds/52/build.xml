@@ -1,0 +1,552 @@
+<?xml version='1.1' encoding='UTF-8'?>
+<flow-build plugin="workflow-job@2.42">
+  <actions>
+    <hudson.model.ParametersAction>
+      <safeParameters class="sorted-set"/>
+      <parameters>
+        <hudson.model.StringParameterValue>
+          <name>testSuite</name>
+          <description>SpriteCloudApiOnlyTests.xml API_ONLY
+                                            SpriteCloudCICDSuite.xml ALL
+                                            SpriteCloudWebRemoteOnlyTests.xml  WEB_ONLY</description>
+          <value>WEB_ONLY</value>
+        </hudson.model.StringParameterValue>
+      </parameters>
+      <parameterDefinitionNames>
+        <string>testSuite</string>
+      </parameterDefinitionNames>
+    </hudson.model.ParametersAction>
+    <hudson.model.CauseAction>
+      <causeBag class="linked-hash-map">
+        <entry>
+          <hudson.model.Cause_-UserIdCause>
+            <userId>admin</userId>
+          </hudson.model.Cause_-UserIdCause>
+          <int>1</int>
+        </entry>
+      </causeBag>
+    </hudson.model.CauseAction>
+    <org.jenkinsci.plugins.workflow.libs.LibrariesAction plugin="workflow-cps-global-lib@2.21">
+      <libraries/>
+    </org.jenkinsci.plugins.workflow.libs.LibrariesAction>
+    <org.jenkinsci.plugins.pipeline.modeldefinition.actions.ExecutionModelAction plugin="pipeline-model-definition@1.9.2">
+      <stagesUUID>15ba6f37-1a8b-4293-8721-749651eb4d47</stagesUUID>
+      <pipelineDefs>
+        <org.jenkinsci.plugins.pipeline.modeldefinition.ast.ModelASTPipelineDef plugin="pipeline-model-api@1.9.2">
+          <stages>
+            <stages>
+              <org.jenkinsci.plugins.pipeline.modeldefinition.ast.ModelASTStage>
+                <name>Project Setup</name>
+                <branches/>
+                <parallel>
+                  <stages>
+                    <org.jenkinsci.plugins.pipeline.modeldefinition.ast.ModelASTStage>
+                      <name>Set Up Parameters</name>
+                      <branches>
+                        <org.jenkinsci.plugins.pipeline.modeldefinition.ast.ModelASTBranch>
+                          <name>default</name>
+                          <steps>
+                            <org.jenkinsci.plugins.pipeline.modeldefinition.ast.ModelASTScriptBlock>
+                              <name>script</name>
+                              <args class="org.jenkinsci.plugins.pipeline.modeldefinition.ast.ModelASTNamedArgumentList">
+                                <arguments class="linked-hash-map">
+                                  <entry>
+                                    <org.jenkinsci.plugins.pipeline.modeldefinition.ast.ModelASTKey>
+                                      <key>scriptBlock</key>
+                                    </org.jenkinsci.plugins.pipeline.modeldefinition.ast.ModelASTKey>
+                                    <org.jenkinsci.plugins.pipeline.modeldefinition.ast.ModelASTValue_-ConstantValue>
+                                      <value class="string">properties([
+                                parameters([
+                                    choice(
+                                        choices: 
+                                            [&apos;API_ONLY&apos;, 
+                                            &apos;ALL&apos;, 
+                                            &apos;WEB_ONLY&apos;], 
+                                        description: 
+                                            &apos;&apos;&apos;SpriteCloudApiOnlyTests.xml API_ONLY
+                                            SpriteCloudCICDSuite.xml ALL
+                                            SpriteCloudWebRemoteOnlyTests.xml  WEB_ONLY&apos;&apos;&apos;, 
+                                        name: &apos;testSuite&apos;
+                                    )
+                                ])
+                            ])
+                            
+                            
+                            switch(testSuite) {            
+                                 case &quot;API_ONLY&quot;: 
+                                    testNGSuiteFile = &quot;SpriteCloudApiOnlyTests.xml&quot;;
+                                    break; 
+                                 case &quot;WEB_ONLY&quot;: 
+                                    testNGSuiteFile = &quot;SpriteCloudWebRemoteOnlyTests.xml&quot;;
+                                    break; 
+                                 case &quot;ALL&quot;: 
+                                     testNGSuiteFile = &quot;SpriteCloudCICDSuite.xml&quot;;
+                                    break; 
+                                 default: 
+                                    error &quot;${testSuite} not a valid choice&quot;
+                                    break; 
+                            }
+
+                            if (testSuite.isEmpty() || testNGSuiteFile == &apos;none&apos;) {
+                                error &apos;testSuite cannot be empty - ABORTING build&apos;
+                            }
+
+                            echo &quot;Currently run against params:&quot;
+                            echo &quot;testSuite: ${testSuite}&quot;
+                            echo &quot;testNGSuiteFile: ${testNGSuiteFile}&quot;</value>
+                                    </org.jenkinsci.plugins.pipeline.modeldefinition.ast.ModelASTValue_-ConstantValue>
+                                  </entry>
+                                </arguments>
+                              </args>
+                            </org.jenkinsci.plugins.pipeline.modeldefinition.ast.ModelASTScriptBlock>
+                          </steps>
+                        </org.jenkinsci.plugins.pipeline.modeldefinition.ast.ModelASTBranch>
+                      </branches>
+                    </org.jenkinsci.plugins.pipeline.modeldefinition.ast.ModelASTStage>
+                    <org.jenkinsci.plugins.pipeline.modeldefinition.ast.ModelASTStage>
+                      <name>Pull Git Repository</name>
+                      <branches>
+                        <org.jenkinsci.plugins.pipeline.modeldefinition.ast.ModelASTBranch>
+                          <name>default</name>
+                          <steps>
+                            <org.jenkinsci.plugins.pipeline.modeldefinition.ast.ModelASTStep>
+                              <name>git</name>
+                              <args class="org.jenkinsci.plugins.pipeline.modeldefinition.ast.ModelASTNamedArgumentList">
+                                <arguments class="linked-hash-map">
+                                  <entry>
+                                    <org.jenkinsci.plugins.pipeline.modeldefinition.ast.ModelASTKey>
+                                      <key>branch</key>
+                                    </org.jenkinsci.plugins.pipeline.modeldefinition.ast.ModelASTKey>
+                                    <org.jenkinsci.plugins.pipeline.modeldefinition.ast.ModelASTValue_-ConstantValue>
+                                      <value class="string">main</value>
+                                    </org.jenkinsci.plugins.pipeline.modeldefinition.ast.ModelASTValue_-ConstantValue>
+                                  </entry>
+                                  <entry>
+                                    <org.jenkinsci.plugins.pipeline.modeldefinition.ast.ModelASTKey>
+                                      <key>url</key>
+                                    </org.jenkinsci.plugins.pipeline.modeldefinition.ast.ModelASTKey>
+                                    <org.jenkinsci.plugins.pipeline.modeldefinition.ast.ModelASTValue_-ConstantValue>
+                                      <value class="string">https://github.com/DewaldSchoonderwoerd/sprite-cloud-automation-framework-demo.git</value>
+                                    </org.jenkinsci.plugins.pipeline.modeldefinition.ast.ModelASTValue_-ConstantValue>
+                                  </entry>
+                                </arguments>
+                              </args>
+                            </org.jenkinsci.plugins.pipeline.modeldefinition.ast.ModelASTStep>
+                          </steps>
+                        </org.jenkinsci.plugins.pipeline.modeldefinition.ast.ModelASTBranch>
+                      </branches>
+                    </org.jenkinsci.plugins.pipeline.modeldefinition.ast.ModelASTStage>
+                  </stages>
+                  <uuid>0aa93065-9e93-4bcb-bcc1-01d43b7defc7</uuid>
+                </parallel>
+              </org.jenkinsci.plugins.pipeline.modeldefinition.ast.ModelASTStage>
+              <org.jenkinsci.plugins.pipeline.modeldefinition.ast.ModelASTStage>
+                <post>
+                  <conditions>
+                    <org.jenkinsci.plugins.pipeline.modeldefinition.ast.ModelASTBuildCondition>
+                      <condition>success</condition>
+                      <branch>
+                        <name>default</name>
+                        <steps>
+                          <org.jenkinsci.plugins.pipeline.modeldefinition.ast.ModelASTStep>
+                            <name>junit</name>
+                            <args class="org.jenkinsci.plugins.pipeline.modeldefinition.ast.ModelASTNamedArgumentList">
+                              <arguments class="linked-hash-map">
+                                <entry>
+                                  <org.jenkinsci.plugins.pipeline.modeldefinition.ast.ModelASTKey>
+                                    <key>testResults</key>
+                                  </org.jenkinsci.plugins.pipeline.modeldefinition.ast.ModelASTKey>
+                                  <org.jenkinsci.plugins.pipeline.modeldefinition.ast.ModelASTValue_-ConstantValue>
+                                    <value class="string">**/reports/*/TEST-*.xml</value>
+                                  </org.jenkinsci.plugins.pipeline.modeldefinition.ast.ModelASTValue_-ConstantValue>
+                                </entry>
+                              </arguments>
+                            </args>
+                          </org.jenkinsci.plugins.pipeline.modeldefinition.ast.ModelASTStep>
+                          <org.jenkinsci.plugins.pipeline.modeldefinition.ast.ModelASTStep>
+                            <name>archiveArtifacts</name>
+                            <args class="org.jenkinsci.plugins.pipeline.modeldefinition.ast.ModelASTNamedArgumentList">
+                              <arguments class="linked-hash-map">
+                                <entry>
+                                  <org.jenkinsci.plugins.pipeline.modeldefinition.ast.ModelASTKey>
+                                    <key>artifacts</key>
+                                  </org.jenkinsci.plugins.pipeline.modeldefinition.ast.ModelASTKey>
+                                  <org.jenkinsci.plugins.pipeline.modeldefinition.ast.ModelASTValue_-ConstantValue>
+                                    <value class="string">target/*.jar</value>
+                                  </org.jenkinsci.plugins.pipeline.modeldefinition.ast.ModelASTValue_-ConstantValue>
+                                </entry>
+                              </arguments>
+                            </args>
+                          </org.jenkinsci.plugins.pipeline.modeldefinition.ast.ModelASTStep>
+                        </steps>
+                      </branch>
+                    </org.jenkinsci.plugins.pipeline.modeldefinition.ast.ModelASTBuildCondition>
+                  </conditions>
+                </post>
+                <name>Build Automation Frameork And Start Test Run</name>
+                <branches>
+                  <org.jenkinsci.plugins.pipeline.modeldefinition.ast.ModelASTBranch>
+                    <name>default</name>
+                    <steps>
+                      <org.jenkinsci.plugins.pipeline.modeldefinition.ast.ModelASTStep>
+                        <name>sh</name>
+                        <args class="org.jenkinsci.plugins.pipeline.modeldefinition.ast.ModelASTNamedArgumentList">
+                          <arguments class="linked-hash-map">
+                            <entry>
+                              <org.jenkinsci.plugins.pipeline.modeldefinition.ast.ModelASTKey>
+                                <key>script</key>
+                              </org.jenkinsci.plugins.pipeline.modeldefinition.ast.ModelASTKey>
+                              <org.jenkinsci.plugins.pipeline.modeldefinition.ast.ModelASTValue_-GStringValue>
+                                <value class="string">&quot;mvn -Dmaven.test.failure.ignore=true clean install surefire-report:report -Dfile=src/test/resources/${testNGSuiteFile}&quot;</value>
+                              </org.jenkinsci.plugins.pipeline.modeldefinition.ast.ModelASTValue_-GStringValue>
+                            </entry>
+                          </arguments>
+                        </args>
+                      </org.jenkinsci.plugins.pipeline.modeldefinition.ast.ModelASTStep>
+                    </steps>
+                  </org.jenkinsci.plugins.pipeline.modeldefinition.ast.ModelASTBranch>
+                </branches>
+              </org.jenkinsci.plugins.pipeline.modeldefinition.ast.ModelASTStage>
+              <org.jenkinsci.plugins.pipeline.modeldefinition.ast.ModelASTStage>
+                <name>Upload result to Calliope</name>
+                <branches>
+                  <org.jenkinsci.plugins.pipeline.modeldefinition.ast.ModelASTBranch>
+                    <name>default</name>
+                    <steps>
+                      <org.jenkinsci.plugins.pipeline.modeldefinition.ast.ModelASTScriptBlock>
+                        <name>script</name>
+                        <args class="org.jenkinsci.plugins.pipeline.modeldefinition.ast.ModelASTNamedArgumentList">
+                          <arguments class="linked-hash-map">
+                            <entry>
+                              <org.jenkinsci.plugins.pipeline.modeldefinition.ast.ModelASTKey>
+                                <key>scriptBlock</key>
+                              </org.jenkinsci.plugins.pipeline.modeldefinition.ast.ModelASTKey>
+                              <org.jenkinsci.plugins.pipeline.modeldefinition.ast.ModelASTValue_-ConstantValue>
+                                <value class="string">def reportPath = findFiles(glob: &quot;**/testng-results.xml&quot;)[0].path
+                    def reportAbsolutePath = new File(env.WORKSPACE, reportPath).getParent() +&quot;/testng-results.xml&quot;
+                    
+                    echo &quot;TestNG Results Report Absolute Path: &quot; + reportAbsolutePath
+                    echo &quot;Uploading testng-results.xml to Calliope&quot;
+                    
+                    final def (String fileUploadResponse, String fileUploadCode) =
+                    sh(script:
+                        &quot;curl -s -w &apos;\n%{response_code}&apos; -X POST --header &apos;accept: application/json&apos; --header &apos;x-api-key: ${API_KEY}&apos; --header &apos;Content-Type: multipart/form-data&apos; --form &apos;file[]=@\&quot;${reportAbsolutePath}\&quot;&apos; --form &apos;os=\&quot;windows\&quot;&apos; --form &apos;platform=\&quot;web\&quot;&apos; --form &apos;build=\&quot;50\&quot;&apos; --form &apos;envelope=\&quot;false\&quot;&apos; --form &apos;smart=\&quot;true\&quot;&apos; https://app.calliope.pro/api/v2/profile/${PROFILE_ID}/import/testng -v&quot;,
+                        
+                        returnStdout: true
+                    )
+                    .trim()
+                    .tokenize(&quot;\n&quot;)
+                    
+                    echo &quot;Trigger Calliope Report upload status code - ${fileUploadCode}&quot;
+                    echo &quot;Trigger Calliope Report upload response - ${fileUploadResponse}&quot;
+                    
+                    if (fileUploadCode == &quot;201&quot;) {
+                        def json = new groovy.json.JsonSlurperClassic().parseText(fileUploadResponse)
+                        def reportId = json.report_id
+                        def reportUrl = json.report_url
+                        def reportStatusUrl = json.report_status_url
+                        echo &quot;Uploading testng-results.xml to Calliope task successfully requested, report ID: ${reportId}&quot;
+                        echo &quot;Follow this link to the Calliope report: ${reportUrl}&quot;
+                    } else {
+                        error &apos;Unable upload report to Calliope!&apos;
+                    }</value>
+                              </org.jenkinsci.plugins.pipeline.modeldefinition.ast.ModelASTValue_-ConstantValue>
+                            </entry>
+                          </arguments>
+                        </args>
+                      </org.jenkinsci.plugins.pipeline.modeldefinition.ast.ModelASTScriptBlock>
+                    </steps>
+                  </org.jenkinsci.plugins.pipeline.modeldefinition.ast.ModelASTBranch>
+                </branches>
+              </org.jenkinsci.plugins.pipeline.modeldefinition.ast.ModelASTStage>
+            </stages>
+            <uuid>15ba6f37-1a8b-4293-8721-749651eb4d47</uuid>
+          </stages>
+          <environment>
+            <variables class="linked-hash-map">
+              <entry>
+                <org.jenkinsci.plugins.pipeline.modeldefinition.ast.ModelASTKey>
+                  <key>API_KEY</key>
+                </org.jenkinsci.plugins.pipeline.modeldefinition.ast.ModelASTKey>
+                <org.jenkinsci.plugins.pipeline.modeldefinition.ast.ModelASTValue_-ConstantValue>
+                  <value class="string">Njc4OTA5MGVlY2QyNDhlYTBjY2MzN2E4MjgzNmRmMjI4ZWM4OWFiZDE1ZDY1OWUyZWU2MmFhOGNkMjBiNDVlYTQ5</value>
+                </org.jenkinsci.plugins.pipeline.modeldefinition.ast.ModelASTValue_-ConstantValue>
+              </entry>
+              <entry>
+                <org.jenkinsci.plugins.pipeline.modeldefinition.ast.ModelASTKey>
+                  <key>PROFILE_ID</key>
+                </org.jenkinsci.plugins.pipeline.modeldefinition.ast.ModelASTKey>
+                <org.jenkinsci.plugins.pipeline.modeldefinition.ast.ModelASTValue_-ConstantValue>
+                  <value class="string">3792</value>
+                </org.jenkinsci.plugins.pipeline.modeldefinition.ast.ModelASTValue_-ConstantValue>
+              </entry>
+              <entry>
+                <org.jenkinsci.plugins.pipeline.modeldefinition.ast.ModelASTKey>
+                  <key>testNGSuiteFile</key>
+                </org.jenkinsci.plugins.pipeline.modeldefinition.ast.ModelASTKey>
+                <org.jenkinsci.plugins.pipeline.modeldefinition.ast.ModelASTValue_-ConstantValue>
+                  <value class="string">none</value>
+                </org.jenkinsci.plugins.pipeline.modeldefinition.ast.ModelASTValue_-ConstantValue>
+              </entry>
+            </variables>
+          </environment>
+          <agent>
+            <agentType>
+              <key>any</key>
+            </agentType>
+          </agent>
+          <tools>
+            <tools class="linked-hash-map">
+              <entry>
+                <org.jenkinsci.plugins.pipeline.modeldefinition.ast.ModelASTKey>
+                  <key>maven</key>
+                </org.jenkinsci.plugins.pipeline.modeldefinition.ast.ModelASTKey>
+                <org.jenkinsci.plugins.pipeline.modeldefinition.ast.ModelASTValue_-ConstantValue>
+                  <value class="string">maven-3.8.3</value>
+                </org.jenkinsci.plugins.pipeline.modeldefinition.ast.ModelASTValue_-ConstantValue>
+              </entry>
+            </tools>
+          </tools>
+        </org.jenkinsci.plugins.pipeline.modeldefinition.ast.ModelASTPipelineDef>
+      </pipelineDefs>
+    </org.jenkinsci.plugins.pipeline.modeldefinition.actions.ExecutionModelAction>
+    <org.jenkinsci.plugins.workflow.cps.EnvActionImpl plugin="workflow-cps@2.94">
+      <env class="tree-map"/>
+    </org.jenkinsci.plugins.workflow.cps.EnvActionImpl>
+    <hudson.plugins.git.util.BuildData plugin="git@4.9.0">
+      <buildsByBranchName>
+        <entry>
+          <string>refs/remotes/origin/main</string>
+          <hudson.plugins.git.util.Build>
+            <marked plugin="git-client@3.10.0">
+              <sha1>da33fe640e866cda8835973552041e3d477691e7</sha1>
+              <branches class="list">
+                <hudson.plugins.git.Branch>
+                  <sha1 reference="../../../sha1"/>
+                  <name>refs/remotes/origin/main</name>
+                </hudson.plugins.git.Branch>
+              </branches>
+            </marked>
+            <revision reference="../marked"/>
+            <hudsonBuildNumber>52</hudsonBuildNumber>
+          </hudson.plugins.git.util.Build>
+        </entry>
+      </buildsByBranchName>
+      <lastBuild reference="../buildsByBranchName/entry/hudson.plugins.git.util.Build"/>
+      <remoteUrls>
+        <string>https://github.com/DewaldSchoonderwoerd/sprite-cloud-automation-framework-demo.git</string>
+      </remoteUrls>
+    </hudson.plugins.git.util.BuildData>
+    <org.jenkinsci.plugins.workflow.steps.scm.MultiSCMRevisionState plugin="workflow-scm-step@2.13">
+      <revisionStates>
+        <entry>
+          <string>git https://github.com/DewaldSchoonderwoerd/sprite-cloud-automation-framework-demo.git</string>
+          <hudson.scm.SCMRevisionState_-None/>
+        </entry>
+      </revisionStates>
+    </org.jenkinsci.plugins.workflow.steps.scm.MultiSCMRevisionState>
+    <hudson.tasks.junit.TestResultAction plugin="junit@1.53">
+      <descriptions class="concurrent-hash-map"/>
+      <failCount>44</failCount>
+      <skipCount>66</skipCount>
+      <totalCount>132</totalCount>
+      <healthScaleFactor>1.0</healthScaleFactor>
+      <testData/>
+    </hudson.tasks.junit.TestResultAction>
+  </actions>
+  <queueId>81</queueId>
+  <timestamp>1636052235856</timestamp>
+  <startTime>1636052235864</startTime>
+  <result>UNSTABLE</result>
+  <duration>15021</duration>
+  <charset>UTF-8</charset>
+  <keepLog>false</keepLog>
+  <execution class="org.jenkinsci.plugins.workflow.cps.CpsFlowExecution">
+    <result>SUCCESS</result>
+    <script>pipeline {
+    agent any
+
+    tools {
+        // Install the Maven version configured as &quot;M3&quot; and add it to the path.
+        maven &quot;maven-3.8.3&quot;
+    }
+    
+    environment{
+        API_KEY = &apos;Njc4OTA5MGVlY2QyNDhlYTBjY2MzN2E4MjgzNmRmMjI4ZWM4OWFiZDE1ZDY1OWUyZWU2MmFhOGNkMjBiNDVlYTQ5&apos;
+        PROFILE_ID = &apos;3792&apos;
+        testNGSuiteFile = &apos;none&apos;
+    }
+
+    stages {
+        stage(&apos;Project Setup&apos;) {
+            parallel {
+                stage(&apos;Set Up Parameters&apos;) {
+                    steps {
+                        script {
+                            properties([
+                                parameters([
+                                    choice(
+                                        choices: 
+                                            [&apos;API_ONLY&apos;, 
+                                            &apos;ALL&apos;, 
+                                            &apos;WEB_ONLY&apos;], 
+                                        description: 
+                                            &apos;&apos;&apos;SpriteCloudApiOnlyTests.xml API_ONLY
+                                            SpriteCloudCICDSuite.xml ALL
+                                            SpriteCloudWebRemoteOnlyTests.xml  WEB_ONLY&apos;&apos;&apos;, 
+                                        name: &apos;testSuite&apos;
+                                    )
+                                ])
+                            ])
+                            
+                            
+                            switch(testSuite) {            
+                                 case &quot;API_ONLY&quot;: 
+                                    testNGSuiteFile = &quot;SpriteCloudApiOnlyTests.xml&quot;;
+                                    break; 
+                                 case &quot;WEB_ONLY&quot;: 
+                                    testNGSuiteFile = &quot;SpriteCloudWebRemoteOnlyTests.xml&quot;;
+                                    break; 
+                                 case &quot;ALL&quot;: 
+                                     testNGSuiteFile = &quot;SpriteCloudCICDSuite.xml&quot;;
+                                    break; 
+                                 default: 
+                                    error &quot;${testSuite} not a valid choice&quot;
+                                    break; 
+                            }
+
+                            if (testSuite.isEmpty() || testNGSuiteFile == &apos;none&apos;) {
+                                error &apos;testSuite cannot be empty - ABORTING build&apos;
+                            }
+
+                            echo &quot;Currently run against params:&quot;
+                            echo &quot;testSuite: ${testSuite}&quot;
+                            echo &quot;testNGSuiteFile: ${testNGSuiteFile}&quot;
+                        }
+                    }
+                }
+                
+                stage(&apos;Pull Git Repository&apos;) {
+                    steps {
+                        // Get some code from a GitHub repository
+                        git branch: &apos;main&apos;, url: &apos;https://github.com/DewaldSchoonderwoerd/sprite-cloud-automation-framework-demo.git&apos;
+                    }
+                }
+            }
+        }
+        
+        stage(&apos;Build Automation Frameork And Start Test Run&apos;) {
+            steps {
+                // Run Maven on a Unix agent.
+                sh &quot;mvn -Dmaven.test.failure.ignore=true clean install surefire-report:report -Dfile=src/test/resources/${testNGSuiteFile}&quot;
+
+            }
+
+            post {
+                // If Maven was able to run the tests, even if some of the test
+                // failed, record the test results and archive the jar file.
+                success {
+                    junit &apos;**/reports/*/TEST-*.xml&apos;
+                    archiveArtifacts &apos;target/*.jar&apos;
+                }
+            }
+        }
+        
+        stage(&apos;Upload result to Calliope&apos;){
+            steps{
+                script{
+                    
+                    def reportPath = findFiles(glob: &quot;**/testng-results.xml&quot;)[0].path
+                    def reportAbsolutePath = new File(env.WORKSPACE, reportPath).getParent() +&quot;/testng-results.xml&quot;
+                    
+                    echo &quot;TestNG Results Report Absolute Path: &quot; + reportAbsolutePath
+                    echo &quot;Uploading testng-results.xml to Calliope&quot;
+                    
+                    final def (String fileUploadResponse, String fileUploadCode) =
+                    sh(script:
+                        &quot;curl -s -w &apos;\n%{response_code}&apos; -X POST --header &apos;accept: application/json&apos; --header &apos;x-api-key: ${API_KEY}&apos; --header &apos;Content-Type: multipart/form-data&apos; --form &apos;file[]=@\&quot;${reportAbsolutePath}\&quot;&apos; --form &apos;os=\&quot;windows\&quot;&apos; --form &apos;platform=\&quot;web\&quot;&apos; --form &apos;build=\&quot;50\&quot;&apos; --form &apos;envelope=\&quot;false\&quot;&apos; --form &apos;smart=\&quot;true\&quot;&apos; https://app.calliope.pro/api/v2/profile/${PROFILE_ID}/import/testng -v&quot;,
+                        
+                        returnStdout: true
+                    )
+                    .trim()
+                    .tokenize(&quot;\n&quot;)
+                    
+                    echo &quot;Trigger Calliope Report upload status code - ${fileUploadCode}&quot;
+                    echo &quot;Trigger Calliope Report upload response - ${fileUploadResponse}&quot;
+                    
+                    if (fileUploadCode == &quot;201&quot;) {
+                        def json = new groovy.json.JsonSlurperClassic().parseText(fileUploadResponse)
+                        def reportId = json.report_id
+                        def reportUrl = json.report_url
+                        def reportStatusUrl = json.report_status_url
+                        echo &quot;Uploading testng-results.xml to Calliope task successfully requested, report ID: ${reportId}&quot;
+                        echo &quot;Follow this link to the Calliope report: ${reportUrl}&quot;
+                    } else {
+                        error &apos;Unable upload report to Calliope!&apos;
+                    }
+                }
+            }
+        }
+    }
+}
+</script>
+    <loadedScripts class="map"/>
+    <durabilityHint>MAX_SURVIVABILITY</durabilityHint>
+    <timings class="map">
+      <entry>
+        <string>flowNode</string>
+        <long>517173390</long>
+      </entry>
+      <entry>
+        <string>classLoad</string>
+        <long>187131937</long>
+      </entry>
+      <entry>
+        <string>run</string>
+        <long>1381706179</long>
+      </entry>
+      <entry>
+        <string>parse</string>
+        <long>121036658</long>
+      </entry>
+      <entry>
+        <string>saveProgram</string>
+        <long>244223599</long>
+      </entry>
+    </timings>
+    <sandbox>true</sandbox>
+    <iota>96</iota>
+    <head>1:96</head>
+    <done>true</done>
+    <resumeBlocked>false</resumeBlocked>
+  </execution>
+  <completed>true</completed>
+  <checkouts class="hudson.util.PersistedList">
+    <org.jenkinsci.plugins.workflow.job.WorkflowRun_-SCMCheckout>
+      <scm class="hudson.plugins.git.GitSCM" plugin="git@4.9.0">
+        <configVersion>2</configVersion>
+        <userRemoteConfigs>
+          <hudson.plugins.git.UserRemoteConfig>
+            <url>https://github.com/DewaldSchoonderwoerd/sprite-cloud-automation-framework-demo.git</url>
+          </hudson.plugins.git.UserRemoteConfig>
+        </userRemoteConfigs>
+        <branches class="singleton-list">
+          <hudson.plugins.git.BranchSpec>
+            <name>*/main</name>
+          </hudson.plugins.git.BranchSpec>
+        </branches>
+        <doGenerateSubmoduleConfigurations>false</doGenerateSubmoduleConfigurations>
+        <submoduleCfg class="empty-list"/>
+        <extensions>
+          <hudson.plugins.git.extensions.impl.LocalBranch>
+            <localBranch>main</localBranch>
+          </hudson.plugins.git.extensions.impl.LocalBranch>
+        </extensions>
+      </scm>
+      <node></node>
+      <workspace>/var/jenkins_home/workspace/sc-automation-framework</workspace>
+      <changelogFile>/var/jenkins_home/jobs/sc-automation-framework/builds/52/changelog3239569897331451015.xml</changelogFile>
+      <pollingBaseline class="hudson.scm.SCMRevisionState$None" reference="../../../actions/org.jenkinsci.plugins.workflow.steps.scm.MultiSCMRevisionState/revisionStates/entry/hudson.scm.SCMRevisionState_-None"/>
+    </org.jenkinsci.plugins.workflow.job.WorkflowRun_-SCMCheckout>
+  </checkouts>
+</flow-build>

@@ -1,0 +1,22 @@
+commit 484aacee674a45f5261369977c10e3d3382cdb63
+tree 507faf68db1b05fc8c0a624da29b362febc27be0
+parent d2ab813123beccd94284ad8c18be236d5992049a
+author DewaldSchoonderwoerd <dewald.schoonderwoerd@gmail.com> 2021-11-04 20:48:55 +0200
+committer DewaldSchoonderwoerd <dewald.schoonderwoerd@gmail.com> 2021-11-04 20:48:55 +0200
+
+    Updated remote url
+
+
+:100644 100644 c1b37b6044da67aa5dfa8cb2e63fd9c4202961c9 76d4ad0d5a38b3641fc19525da15e8544f15b91e M	jenkins-docker/jenkins-backup/copy_reference_file.log
+:100644 100644 f5aba9aaa815f9477d9948ab0c71c365c8c37479 e0c98eaa47b5a7a372f22f5c64905922b554650f M	jenkins-docker/jenkins-backup/jobs/sc-automation-framework/builds/permalinks
+:100644 100644 21e72e8ac3d7e23bd6532b5f1f4a6bdf8362e6cf 82cced27d7be32719d009707139bd949ad6263c9 M	jenkins-docker/jenkins-backup/jobs/sc-automation-framework/nextBuildNumber
+:100644 100644 bea45f4856c06bc1efe0425aa049d494311c46af b5877adddcb36722053511b3691f14af8bac45a0 M	jenkins-docker/jenkins-backup/logs/tasks/Download metadata.log
+:100644 100644 62e4c1ea4c0c74bd41de1db793cafda73d6ce380 bea45f4856c06bc1efe0425aa049d494311c46af M	jenkins-docker/jenkins-backup/logs/tasks/Download metadata.log.1
+:100644 100644 c093d09951750b98dae7662e8c2fe3e58b9f895c 62e4c1ea4c0c74bd41de1db793cafda73d6ce380 M	jenkins-docker/jenkins-backup/logs/tasks/Download metadata.log.2
+:100644 100644 34f7b5e5aaa365f6906c405d5ec4e733cf7ea44d c093d09951750b98dae7662e8c2fe3e58b9f895c M	jenkins-docker/jenkins-backup/logs/tasks/Download metadata.log.3
+:100644 100644 33ceac93eb67640d9404e3d7ae21085b8713c792 34f7b5e5aaa365f6906c405d5ec4e733cf7ea44d M	jenkins-docker/jenkins-backup/logs/tasks/Download metadata.log.4
+:100644 100644 bb6361052dbf60423d141ee10dba236d17541973 33ceac93eb67640d9404e3d7ae21085b8713c792 M	jenkins-docker/jenkins-backup/logs/tasks/Download metadata.log.5
+:100644 100644 f0a15dded1187719a8ae840cd5a32f974c1a0223 3acb0a44df6ae63eeff48c80ec8f858db278bf0d M	jenkins-docker/jenkins-backup/queue.xml
+:100644 100644 9ed98d551cae7dae686159c8d6fd92a059cd400d e4b2aac32827ed9359a3f493a1bd86059fe57b8b M	jenkins-docker/jenkins-backup/queue.xml.bak
+:160000 160000 1fa60851b42c63fc40e0d7ea8066b96fc1e776bb d2ab813123beccd94284ad8c18be236d5992049a M	jenkins-docker/jenkins-backup/workspace/sc-automation-framework
+:100644 100644 9254cda8f839949f8e2317326a6c59eda44f35d6 323fb8546587c19333f59ca35a873bf8e7dbf305 M	src/main/java/com/sprite/cloud/automation/framework/base/TestBase.java

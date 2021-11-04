@@ -1,0 +1,30 @@
+commit 9f91215bc6d8f57882269f99ae0e8810556ce09d
+tree 05a3753598f6c10e9e4c2fc78f6230f62906a1b3
+parent c4b5b555c8aa769a764f56cd68491f5d09e8ae6a
+author DewaldSchoonderwoerd <dewald.schoonderwoerd@gmail.com> 2021-11-04 18:03:07 +0200
+committer DewaldSchoonderwoerd <dewald.schoonderwoerd@gmail.com> 2021-11-04 18:03:07 +0200
+
+    Added headless arg to remote drivers
+
+
+:100644 100644 10013dcad5203e0b04f945a67302cd1a4c6f411b de41919079c0d25512340680cb9c032b68d2d2f8 M	jenkins-docker/docker-compose.yml
+:100644 100644 3ef4da1e75cc8b5021faf26aa84409a94d527530 9f30a60b7f32bea3a83c05de6ad2b1e32bc91c6f M	jenkins-docker/jenkins-backup/.config/jgit/config
+:100644 100644 6e24f1d12a866068c99f818a9f5f890db82dc549 6cbfaea0a5d61cff8792f2cc0fe29892ba0a53bc M	jenkins-docker/jenkins-backup/.owner
+:100644 100644 392a8b2395364c4dc6825a1c4e506fce0307f754 1d5ae10108dd0ac564ff31ecaf0c95a11f488c8e M	jenkins-docker/jenkins-backup/copy_reference_file.log
+:100644 100644 0fd5fe47606f2b2c9d74c0b1288fbead42fa1e29 a27b171f72954135fa9ac43a84e6947f28e86412 M	jenkins-docker/jenkins-backup/jobs/sc-automation-framework/builds/permalinks
+:100644 100644 4cfe0e7ca745065a7433a1c616877e79048a3268 6ee4882d3232686726d217f4f572c666af07f3b5 M	jenkins-docker/jenkins-backup/jobs/sc-automation-framework/config.xml
+:100644 100644 209e3ef4b6247ce746048d5711befda46206d235 425151f3a411f5e088d7753e7c8d016303b1b9d1 M	jenkins-docker/jenkins-backup/jobs/sc-automation-framework/nextBuildNumber
+:100644 100644 2f9d7df1295922a3898eb6fea4a53c3aa384e793 33ceac93eb67640d9404e3d7ae21085b8713c792 M	jenkins-docker/jenkins-backup/logs/tasks/Download metadata.log
+:100644 100644 e8c3b88480902958e214bde87f7fd914b678a9a1 bb6361052dbf60423d141ee10dba236d17541973 M	jenkins-docker/jenkins-backup/logs/tasks/Download metadata.log.1
+:100644 100644 02905a46e58ebe360fae8189b149e385b66cdb2f 2f9d7df1295922a3898eb6fea4a53c3aa384e793 M	jenkins-docker/jenkins-backup/logs/tasks/Download metadata.log.2
+:100644 100644 803f7d3aea8cf27103d664be2706520b01e9913a e8c3b88480902958e214bde87f7fd914b678a9a1 M	jenkins-docker/jenkins-backup/logs/tasks/Download metadata.log.3
+:100644 100644 c78a6bc26ada3406b6bbad6e20237a67e3da7af8 02905a46e58ebe360fae8189b149e385b66cdb2f M	jenkins-docker/jenkins-backup/logs/tasks/Download metadata.log.4
+:100644 100644 84b1e2eae528345660a923454e53511eccf236a3 803f7d3aea8cf27103d664be2706520b01e9913a M	jenkins-docker/jenkins-backup/logs/tasks/Download metadata.log.5
+:100644 100644 5c05ebb3de2da988f0579b6628a7dc77cb6258c4 b50d98c8c4285a33a2816730bc3751949049489a M	jenkins-docker/jenkins-backup/logs/tasks/Periodic background build discarder.log
+:100644 100644 2cbabddf008490a74299da2d182976443af08342 53a3d9aba92a1afd88ed6c37fece960474d379aa M	jenkins-docker/jenkins-backup/logs/tasks/Periodic background build discarder.log.1
+:100644 100644 3cc06f7a518d28993e91b944840d23db43e9306b 5c05ebb3de2da988f0579b6628a7dc77cb6258c4 M	jenkins-docker/jenkins-backup/logs/tasks/Periodic background build discarder.log.2
+:100644 100644 1346f75f9fcb7bc5e8ecc3c267735933632a4780 2cbabddf008490a74299da2d182976443af08342 M	jenkins-docker/jenkins-backup/logs/tasks/Periodic background build discarder.log.3
+:100644 100644 cb9fe0a75e15dc74b4a9a497fed823fe8c9bc476 57c612cdbeb948cc7cc0259c8d9d7892b6d5f49f M	jenkins-docker/jenkins-backup/queue.xml
+:100644 100644 a7955eaf8fabab6a780047d7410345b1d69b0f3e 51db871f2b767f43c8e96793f61f6cfbdb71b01c M	jenkins-docker/jenkins-backup/queue.xml.bak
+:160000 160000 9ca58de8ba2b9b114a752d7bd734723cc804e2b6 c4b5b555c8aa769a764f56cd68491f5d09e8ae6a M	jenkins-docker/jenkins-backup/workspace/sc-automation-framework
+:100644 100644 f53e0f13980f9ff35633d8126577dbd09685898d 7abf4d7da3d046c13ff1de23c9765498222a2e7e M	src/main/java/com/sprite/cloud/automation/framework/base/TestBase.java

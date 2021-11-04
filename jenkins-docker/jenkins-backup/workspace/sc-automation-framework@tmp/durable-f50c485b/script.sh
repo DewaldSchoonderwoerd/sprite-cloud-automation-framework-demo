@@ -1,0 +1,1 @@
+mvn -Dmaven.test.failure.ignore=true clean install surefire-report:report -Dfile=src/test/resources/SpriteCloudWebRemoteOnlyTests.xml

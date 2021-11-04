@@ -1,0 +1,31 @@
+<?xml version='1.1' encoding='UTF-8'?>
+<Tag plugin="workflow-support@3.8">
+  <node class="cps.n.StepAtomNode" plugin="workflow-cps@2.94">
+    <parentIds>
+      <string>78</string>
+    </parentIds>
+    <id>79</id>
+    <descriptorId>org.jenkinsci.plugins.workflow.steps.durable_task.ShellStep</descriptorId>
+  </node>
+  <actions>
+    <cps.a.ArgumentsActionImpl plugin="workflow-cps@2.94">
+      <arguments>
+        <entry>
+          <string>returnStdout</string>
+          <boolean>true</boolean>
+        </entry>
+        <entry>
+          <string>script</string>
+          <string>curl -s -w &apos;
+%{response_code}&apos; -X POST --header &apos;accept: application/json&apos; --header &apos;x-api-key: Njc4OTA5MGVlY2QyNDhlYTBjY2MzN2E4MjgzNmRmMjI4ZWM4OWFiZDE1ZDY1OWUyZWU2MmFhOGNkMjBiNDVlYTQ5&apos; --header &apos;Content-Type: multipart/form-data&apos; --form &apos;file[]=@&quot;/var/jenkins_home/workspace/sc-automation-framework/src/test/resources/reports/2021-11-04_13-06/testng-results.xml&quot;&apos; --form &apos;os=&quot;windows&quot;&apos; --form &apos;platform=&quot;web&quot;&apos; --form &apos;build=&quot;50&quot;&apos; --form &apos;envelope=&quot;false&quot;&apos; --form &apos;smart=&quot;true&quot;&apos; https://app.calliope.pro/api/v2/profile/3792/import/testng -v</string>
+        </entry>
+      </arguments>
+      <sensitiveVariables/>
+      <isUnmodifiedBySanitization>true</isUnmodifiedBySanitization>
+    </cps.a.ArgumentsActionImpl>
+    <wf.a.TimingAction plugin="workflow-api@2.47">
+      <startTime>1636056496534</startTime>
+    </wf.a.TimingAction>
+    <s.a.LogStorageAction/>
+  </actions>
+</Tag>

@@ -1,0 +1,18 @@
+commit da33fe640e866cda8835973552041e3d477691e7
+tree 4d3331bbf1ce1c9ed7a8000979dae788be147b49
+parent 484aacee674a45f5261369977c10e3d3382cdb63
+author DewaldSchoonderwoerd <dewald.schoonderwoerd@gmail.com> 2021-11-04 20:56:32 +0200
+committer DewaldSchoonderwoerd <dewald.schoonderwoerd@gmail.com> 2021-11-04 20:56:32 +0200
+
+    Updated remote url
+
+
+:100644 100644 e0c98eaa47b5a7a372f22f5c64905922b554650f 31d6d2b6402c83fd62d87ce4920df064c93b6e5a M	jenkins-docker/jenkins-backup/jobs/sc-automation-framework/builds/permalinks
+:100644 100644 82cced27d7be32719d009707139bd949ad6263c9 0691f67b202a873c99bdb9b99e15a667cb916a5b M	jenkins-docker/jenkins-backup/jobs/sc-automation-framework/nextBuildNumber
+:100644 100644 b961ac75f99331c61d6bce1258f36954d9f86ef6 9e113097458097b9b209f6735db76d95fc0f1c69 M	jenkins-docker/jenkins-backup/logs/tasks/Periodic background build discarder.log
+:100644 100644 95284c227df4fcaac4631cae98a940aead80446f b961ac75f99331c61d6bce1258f36954d9f86ef6 M	jenkins-docker/jenkins-backup/logs/tasks/Periodic background build discarder.log.1
+:100644 100644 b50d98c8c4285a33a2816730bc3751949049489a 95284c227df4fcaac4631cae98a940aead80446f M	jenkins-docker/jenkins-backup/logs/tasks/Periodic background build discarder.log.2
+:100644 100644 53a3d9aba92a1afd88ed6c37fece960474d379aa b50d98c8c4285a33a2816730bc3751949049489a M	jenkins-docker/jenkins-backup/logs/tasks/Periodic background build discarder.log.3
+:100644 100644 3acb0a44df6ae63eeff48c80ec8f858db278bf0d 223aadf016b2f1b031d6bf46d255edd1c8d53c9c M	jenkins-docker/jenkins-backup/queue.xml
+:160000 160000 d2ab813123beccd94284ad8c18be236d5992049a 484aacee674a45f5261369977c10e3d3382cdb63 M	jenkins-docker/jenkins-backup/workspace/sc-automation-framework
+:100644 100644 323fb8546587c19333f59ca35a873bf8e7dbf305 0edceeadab27076a847675b62782464412bfafba M	src/main/java/com/sprite/cloud/automation/framework/base/TestBase.java
