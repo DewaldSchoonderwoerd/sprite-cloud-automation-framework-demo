@@ -1,3 +1,6 @@
 [filesystem "Eclipse Foundation|11.0.12|grpcfuse"]
 	timestampResolution = 4000 nanoseconds
 	minRacyThreshold = 0 nanoseconds
+[filesystem "Eclipse Foundation|11.0.12|/dev/mapper/vgubuntu-root"]
+	timestampResolution = 6000 nanoseconds
+	minRacyThreshold = 7447 microseconds

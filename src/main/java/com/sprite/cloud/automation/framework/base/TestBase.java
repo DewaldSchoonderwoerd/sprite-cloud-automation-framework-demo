@@ -46,11 +46,13 @@ public class TestBase {
                     chromeOptions.addArguments("start-maximized");
                     chromeOptions.addArguments("disable-infobars");
                     chromeOptions.addArguments("--disable-extensions");
+                    chromeOptions.addArguments("--headless");
                     WebDriverManager.chromedriver().setup();
                     driver = new ChromeDriver(chromeOptions);
                     break;
                 case FIREFOX:
                     FirefoxOptions firefoxOptions = new FirefoxOptions();
+                    firefoxOptions.addArguments("--headless");
                     WebDriverManager.firefoxdriver().setup();
                     driver = new FirefoxDriver(firefoxOptions);
                     break;

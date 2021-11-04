@@ -18,3 +18,5 @@ services:
       - /var/run/docker.sock:/var/run/docker.sock
     environment:
       - JVM_OPTS=-Xmx8192m -Xmx8192m --handlerCountMax=300
+    extra_hosts:
+      -
