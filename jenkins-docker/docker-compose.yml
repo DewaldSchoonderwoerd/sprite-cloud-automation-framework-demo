@@ -2,6 +2,8 @@ version: '3.7'
 services:
   jenkins:
     image: jenkins/jenkins:lts
+    networks:
+      - shared_network_name
     logging:
       driver: "json-file"
       options:
@@ -21,6 +23,8 @@ services:
 
   selenium-event-bus:
     image: selenium/event-bus:4.0.0-20211025
+    networks:
+      - shared_network_name
     container_name: selenium-event-bus
     ports:
       - "4442:4442"
@@ -29,6 +33,8 @@ services:
 
   selenium-sessions:
     image: selenium/sessions:4.0.0-20211025
+    networks:
+      - shared_network_name
     container_name: selenium-sessions
     ports:
       - "5556:5556"
@@ -41,6 +47,8 @@ services:
 
   selenium-session-queue:
     image: selenium/session-queue:4.0.0-20211025
+    networks:
+      - shared_network_name
     container_name: selenium-session-queue
     ports:
       - "5559:5559"
@@ -53,6 +61,8 @@ services:
 
   selenium-distributor:
     image: selenium/distributor:4.0.0-20211025
+    networks:
+      - shared_network_name
     container_name: selenium-distributor
     ports:
       - "5553:5553"
@@ -71,6 +81,8 @@ services:
 
   selenium-router:
     image: selenium/router:4.0.0-20211025
+    networks:
+      - shared_network_name
     container_name: selenium-router
     ports:
       - "4444:4444"
@@ -90,6 +102,8 @@ services:
 
   chrome:
     image: selenium/node-chrome:4.0.0-20211025
+    networks:
+      - shared_network_name
     shm_size: 2gb
     depends_on:
       - selenium-event-bus
@@ -104,6 +118,8 @@ services:
 
   firefox:
     image: selenium/node-firefox:4.0.0-20211025
+    networks:
+      - shared_network_name
     shm_size: 2gb
     depends_on:
       - selenium-event-bus
@@ -115,3 +131,7 @@ services:
       - SE_NODE_MAX_SESSIONS=2
     ports:
       - "6902:5900"
+
+networks:
+  shared_network_name:
+    driver: bridge
