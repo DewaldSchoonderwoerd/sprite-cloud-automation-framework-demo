@@ -58,11 +58,11 @@ public class TestBase {
                     break;
                 case CHROME_REMOTE:
                     ChromeOptions chromeRemoteOptions = new ChromeOptions();
-                    driver = new RemoteWebDriver(new URL("http://127.0.0.1:4444/wd/hub"), chromeRemoteOptions);
+                    driver = new RemoteWebDriver(new URL("http://172.18.0.9:4444/wd/hub"), chromeRemoteOptions);
                     break;
                 case FIREFOX_REMOTE:
                     FirefoxOptions firefoxRemoteOptions = new FirefoxOptions();
-                    driver = new RemoteWebDriver(new URL("http://127.0.0.1:4444/wd/hub"), firefoxRemoteOptions);
+                    driver = new RemoteWebDriver(new URL("http://172.18.0.9:4444/wd/hub"), firefoxRemoteOptions);
                     break;
                 default:
                     throw new Exception("Unknown browser - " + browserName + "\n it either does not exist or needs to be set up.");

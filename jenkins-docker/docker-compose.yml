@@ -85,6 +85,8 @@ services:
       - SE_SESSIONS_MAP_PORT=5556
       - SE_SESSION_QUEUE_HOST=selenium-session-queue
       - SE_SESSION_QUEUE_PORT=5559
+    expose:
+      - "4444"
 
   chrome:
     image: selenium/node-chrome:4.0.0-20211025
