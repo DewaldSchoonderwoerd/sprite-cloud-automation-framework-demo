@@ -72,6 +72,8 @@ Step 1: Login to Jenkins (localhost:8083)
 Step 2: Go into job
 Step 3: Select build with parameters
 Step 4: Select a option and run
+
+*NOTE* Initial run may take up to 5 minutes to resolve dependencies
 ```
 
 ---

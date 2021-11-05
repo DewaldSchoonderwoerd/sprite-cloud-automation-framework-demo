@@ -621,15 +621,26 @@
         </entry>
       </revisionStates>
     </org.jenkinsci.plugins.workflow.steps.scm.MultiSCMRevisionState>
+    <jenkins.model.InterruptedBuildAction>
+      <causes class="java.util.Collections$UnmodifiableRandomAccessList" resolves-to="java.util.Collections$UnmodifiableList">
+        <c class="list">
+          <jenkins.model.CauseOfInterruption_-UserInterruption>
+            <user>admin</user>
+          </jenkins.model.CauseOfInterruption_-UserInterruption>
+        </c>
+        <list reference="../c"/>
+      </causes>
+    </jenkins.model.InterruptedBuildAction>
   </actions>
-  <queueId>91</queueId>
+  <queueId>94</queueId>
   <timestamp>1636057310674</timestamp>
   <startTime>1636057310681</startTime>
-  <duration>0</duration>
+  <result>ABORTED</result>
+  <duration>56399728</duration>
   <charset>UTF-8</charset>
   <keepLog>false</keepLog>
   <execution class="org.jenkinsci.plugins.workflow.cps.CpsFlowExecution">
-    <result>SUCCESS</result>
+    <result>ABORTED</result>
     <script>pipeline {
     agent any
 
@@ -762,33 +773,32 @@
     <timings class="map">
       <entry>
         <string>flowNode</string>
-        <long>365549169</long>
+        <long>818808931</long>
       </entry>
       <entry>
         <string>classLoad</string>
-        <long>7498287980</long>
+        <long>19247948140</long>
       </entry>
       <entry>
         <string>run</string>
-        <long>1189669129</long>
+        <long>2036725846</long>
       </entry>
       <entry>
         <string>parse</string>
-        <long>185512261</long>
+        <long>8027564595</long>
       </entry>
       <entry>
         <string>saveProgram</string>
-        <long>147882233</long>
+        <long>281032407</long>
       </entry>
     </timings>
     <sandbox>true</sandbox>
-    <iota>61</iota>
-    <head>1:61</head>
-    <start>2</start>
-    <done>false</done>
+    <iota>76</iota>
+    <head>1:76</head>
+    <done>true</done>
     <resumeBlocked>false</resumeBlocked>
   </execution>
-  <completed>false</completed>
+  <completed>true</completed>
   <checkouts class="hudson.util.PersistedList">
     <org.jenkinsci.plugins.workflow.job.WorkflowRun_-SCMCheckout>
       <scm class="hudson.plugins.git.GitSCM" plugin="git@4.9.0">
