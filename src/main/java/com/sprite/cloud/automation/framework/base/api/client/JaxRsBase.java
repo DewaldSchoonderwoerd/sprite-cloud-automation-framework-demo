@@ -4,6 +4,8 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.jaxrs.json.JacksonJsonProvider;
 import com.sprite.cloud.automation.framework.base.api.client.interceptors.HttpLogger;
 import com.sprite.cloud.automation.framework.base.api.resource.petstore.v2.PetResource;
+import com.sprite.cloud.automation.framework.base.api.resource.petstore.v2.StoreResource;
+import com.sprite.cloud.automation.framework.base.api.resource.petstore.v2.UserResource;
 import com.sprite.cloud.automation.framework.base.api.resource.toolsqa.account.v1.AccountResource;
 import org.apache.cxf.jaxrs.client.JAXRSClientFactory;
 import org.slf4j.Logger;
@@ -54,6 +56,10 @@ public class JaxRsBase {
     public PetResource getPetResource(){
         return getResource(PetResource.class, PET_STORE_KEY);
     }
+
+    public StoreResource getStoreResource() {return getResource(StoreResource.class, PET_STORE_KEY);}
+
+    public UserResource getUserResource() {return getResource(UserResource.class, PET_STORE_KEY);}
 
     public AccountResource getAccountResource() {
         return getResource(AccountResource.class, TOOLS_QA_KEY);

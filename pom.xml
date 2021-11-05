@@ -66,12 +66,6 @@
         </dependency>
 
         <dependency>
-            <groupId>com.google.code.gson</groupId>
-            <artifactId>gson</artifactId>
-            <version>${gson.version}</version>
-        </dependency>
-
-        <dependency>
             <groupId>ch.qos.logback</groupId>
             <artifactId>logback-classic</artifactId>
             <version>${logback.version}</version>
@@ -135,8 +129,7 @@
                     </argLine>
                     <reportsDirectory>${reportsDir}</reportsDirectory>
                     <suiteXmlFiles>${file}</suiteXmlFiles>
-<!--                    <suiteXmlFiles>src/test/resources/SpriteCloudWebCucumberOnlyTests.xml </suiteXmlFiles>-->
-<!--                    <redirectTestOutputToFile>true</redirectTestOutputToFile>-->
+                    <groups>SMOKE,REGRESSION,WIP</groups>
                 </configuration>
                 <dependencies>
                     <dependency>

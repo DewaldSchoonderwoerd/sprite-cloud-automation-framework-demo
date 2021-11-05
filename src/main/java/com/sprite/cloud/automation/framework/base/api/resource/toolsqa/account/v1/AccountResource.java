@@ -1,7 +1,6 @@
 package com.sprite.cloud.automation.framework.base.api.resource.toolsqa.account.v1;
 
 import com.sprite.cloud.automation.framework.base.api.models.bookstore.account.v1.postAccount.request.PostAccountRequest;
-import com.sprite.cloud.automation.framework.base.api.models.petstore.v2.postPet.request.PostPetRequest;
 
 import javax.ws.rs.Consumes;
 import javax.ws.rs.POST;

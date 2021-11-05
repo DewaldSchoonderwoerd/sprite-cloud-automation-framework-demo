@@ -1,6 +1,7 @@
 package com.sprite.cloud.automation.framework.base.web.pom.BookStoreApplicationPageObjects;
 
 import com.sprite.cloud.automation.framework.base.web.WebPageHelper;
+import com.sprite.cloud.automation.framework.base.web.WebPropertyUtils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -10,6 +11,8 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import static com.sprite.cloud.automation.framework.base.TestBase.environment;
 
 public class RegistrationPage extends WebPageHelper {
 
@@ -39,7 +42,15 @@ public class RegistrationPage extends WebPageHelper {
         clickElementByExactText(optionText);
     }
 
+    public void goTo(){
+        String baseUrl = WebPropertyUtils.getWebUrl("tools", environment);
+
+        driver.navigate().to(baseUrl + "/register");
+        LOG.info("Navigating to URL: " + baseUrl);
+    }
+
     public void selectReCaptcha(){
+//        TODO: @WIP
 //        driver.switchTo().frame("//body/div[@id='app']/div[1]/div[1]/div[2]/div[2]/div[1]/form[1]/div[6]/div[1]/iframe[1]");
 
 //        WebElement element = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("div.recaptcha-checkbox-checkmark")));

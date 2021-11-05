@@ -121,9 +121,9 @@ Commit message: "Added headless arg to remote drivers"
 [INFO] -------------------------------------------------------
 [INFO] Running TestSuite
 [ERROR] Tests run: 3, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 5.612 s <<< FAILURE! - in TestSuite
-[ERROR] com.sprite.cloud.automation.framework.api.functional.PostPetTest.addPetUnsuccessfullyTest  Time elapsed: 1.504 s  <<< FAILURE!
+[ERROR] com.sprite.cloud.automation.framework.api.petstorepet.PostPetTest.addPetUnsuccessfullyTest  Time elapsed: 1.504 s  <<< FAILURE!
 java.lang.AssertionError: Unable to unsuccessfully add new pet: Doggie expected [400] but found [200]
-	at com.sprite.cloud.automation.framework.api.functional.PostPetTest.addPetUnsuccessfullyTest(PostPetTest.java:59)
+	at com.sprite.cloud.automation.framework.api.petstorepet.PostPetTest.addPetUnsuccessfullyTest(PostPetTest.java:59)
 
 [INFO] 
 [INFO] Results:

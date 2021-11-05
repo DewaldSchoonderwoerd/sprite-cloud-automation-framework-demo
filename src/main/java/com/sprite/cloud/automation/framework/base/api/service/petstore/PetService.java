@@ -3,11 +3,11 @@ package com.sprite.cloud.automation.framework.base.api.service.petstore;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.sprite.cloud.automation.framework.base.api.client.JaxRsBase;
-import com.sprite.cloud.automation.framework.base.api.models.petstore.v2.postPet.request.PostPetRequest;
-import com.sprite.cloud.automation.framework.base.api.models.petstore.v2.postPet.request.Tag;
-import com.sprite.cloud.automation.framework.base.api.models.petstore.v2.postPet.response.PostPetResponse;
-import com.sprite.cloud.automation.framework.base.api.models.petstore.v2.putpet.request.PutPetRequest;
-import com.sprite.cloud.automation.framework.base.api.models.petstore.v2.putpet.response.PutPetResponse;
+import com.sprite.cloud.automation.framework.base.api.models.petstore.v2.pet.postpet.request.PostPetRequest;
+import com.sprite.cloud.automation.framework.base.api.models.petstore.v2.pet.postpet.request.Tag;
+import com.sprite.cloud.automation.framework.base.api.models.petstore.v2.pet.postpet.response.PostPetResponse;
+import com.sprite.cloud.automation.framework.base.api.models.petstore.v2.pet.putpet.request.PutPetRequest;
+import com.sprite.cloud.automation.framework.base.api.models.petstore.v2.pet.putpet.response.PutPetResponse;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.testng.Assert;
@@ -63,7 +63,7 @@ public class PetService {
 
         // Tag object assertions
         for (Tag currentRequestTag : postPetRequest.getTags()) {
-            for (com.sprite.cloud.automation.framework.base.api.models.petstore.v2.postPet.response.Tag currentResponseTag : postPetResponse.getTags()){
+            for (com.sprite.cloud.automation.framework.base.api.models.petstore.v2.pet.postpet.response.Tag currentResponseTag : postPetResponse.getTags()){
                 if (!currentRequestTag.getId().equals(currentResponseTag.getId())){
                     softAssert.fail("PostPetResponse Tag does not contain requested Tag: " + currentRequestTag.getId());
                 }
@@ -111,8 +111,8 @@ public class PetService {
         }
 
         // Tag object assertions
-        for (com.sprite.cloud.automation.framework.base.api.models.petstore.v2.putpet.request.Tag currentRequestTag : putPetRequest.getTags()) {
-            for (com.sprite.cloud.automation.framework.base.api.models.petstore.v2.putpet.response.Tag currentResponseTag : petResponse.getTags()){
+        for (com.sprite.cloud.automation.framework.base.api.models.petstore.v2.pet.putpet.request.Tag currentRequestTag : putPetRequest.getTags()) {
+            for (com.sprite.cloud.automation.framework.base.api.models.petstore.v2.pet.putpet.response.Tag currentResponseTag : petResponse.getTags()){
                 if (!currentRequestTag.getId().equals(currentResponseTag.getId())){
                     softAssert.fail("PostPetResponse Tag does not contain requested Tag: " + currentRequestTag.getId());
                 }

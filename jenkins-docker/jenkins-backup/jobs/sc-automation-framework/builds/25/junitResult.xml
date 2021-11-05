@@ -196,7 +196,7 @@
       <cases>
         <case>
           <duration>2.091</duration>
-          <className>com.sprite.cloud.automation.framework.api.functional.PostPetTest</className>
+          <className>com.sprite.cloud.automation.framework.api.petstorepet.PostPetTest</className>
           <testName>addPetSuccessfullyTest</testName>
           <skipped>false</skipped>
           <stdout>13:51:03,721 |-INFO in ch.qos.logback.classic.LoggerContext[default] - Found resource [logback-test.xml] at [file:/var/jenkins_home/workspace/sc-automation-framework@2/target/test-classes/logback-test.xml]
@@ -224,12 +224,14 @@ ter&quot;,
         </case>
         <case>
           <duration>1.503</duration>
-          <className>com.sprite.cloud.automation.framework.api.functional.PostPetTest</className>
+          <className>com.sprite.cloud.automation.framework.api.petstorepet.PostPetTest</className>
           <testName>addPetUnsuccessfullyTest</testName>
           <skipped>false</skipped>
-          <errorStackTrace>java.lang.AssertionError: Unable to unsuccessfully add new pet: Doggie expected [400] but found [200]
-	at com.sprite.cloud.automation.framework.api.functional.PostPetTest.addPetUnsuccessfullyTest(PostPetTest.java:59)
-</errorStackTrace>
+          <errorStackTrace>java.lang.AssertionError: Unable to unsuccessfully add new pet: Doggie expected [400] but
+              found [200]
+              at
+              com.sprite.cloud.automation.framework.api.petstorepet.PostPetTest.addPetUnsuccessfullyTest(PostPetTest.java:59)
+          </errorStackTrace>
           <errorDetails>Unable to unsuccessfully add new pet: Doggie expected [400] but found [200]</errorDetails>
           <stdout>[INFO ] 04 Nov 13:51:05 [c.s.c.a.f.b.a.s.p.PetService : 37] - Requesting add new pet, expecting exception with status code 400: Doggie
 [INFO ] 04 Nov 13:51:05 [c.s.c.a.f.b.a.c.i.HttpLogger : 39] - ========================== Request =========================================
@@ -283,7 +285,7 @@ ter&quot;,
         </case>
         <case>
           <duration>1.503</duration>
-          <className>com.sprite.cloud.automation.framework.api.functional.PutPetTest</className>
+          <className>com.sprite.cloud.automation.framework.api.petstorepet.PutPetTest</className>
           <testName>editPetSuccessfullyTest</testName>
           <skipped>false</skipped>
           <stdout>[INFO ] 04 Nov 13:51:07 [c.s.c.a.f.b.TestBase : 82] - Selenium Driver closed
@@ -313,7 +315,7 @@ er&quot;,
         </case>
         <case>
           <duration>2.091</duration>
-          <className>com.sprite.cloud.automation.framework.api.functional.PostPetTest</className>
+          <className>com.sprite.cloud.automation.framework.api.petstorepet.PostPetTest</className>
           <testName>addPetSuccessfullyTest</testName>
           <skipped>false</skipped>
           <stdout>13:51:03,721 |-INFO in ch.qos.logback.classic.LoggerContext[default] - Found resource [logback-test.xml] at [file:/var/jenkins_home/workspace/sc-automation-framework@2/target/test-classes/logback-test.xml]
@@ -341,12 +343,14 @@ ter&quot;,
         </case>
         <case>
           <duration>1.503</duration>
-          <className>com.sprite.cloud.automation.framework.api.functional.PostPetTest</className>
+          <className>com.sprite.cloud.automation.framework.api.petstorepet.PostPetTest</className>
           <testName>addPetUnsuccessfullyTest</testName>
           <skipped>false</skipped>
-          <errorStackTrace>java.lang.AssertionError: Unable to unsuccessfully add new pet: Doggie expected [400] but found [200]
-	at com.sprite.cloud.automation.framework.api.functional.PostPetTest.addPetUnsuccessfullyTest(PostPetTest.java:59)
-</errorStackTrace>
+          <errorStackTrace>java.lang.AssertionError: Unable to unsuccessfully add new pet: Doggie expected [400] but
+              found [200]
+              at
+              com.sprite.cloud.automation.framework.api.petstorepet.PostPetTest.addPetUnsuccessfullyTest(PostPetTest.java:59)
+          </errorStackTrace>
           <errorDetails>Unable to unsuccessfully add new pet: Doggie expected [400] but found [200]</errorDetails>
           <stdout>[INFO ] 04 Nov 13:51:05 [c.s.c.a.f.b.a.s.p.PetService : 37] - Requesting add new pet, expecting exception with status code 400: Doggie
 [INFO ] 04 Nov 13:51:05 [c.s.c.a.f.b.a.c.i.HttpLogger : 39] - ========================== Request =========================================
@@ -400,7 +404,7 @@ ter&quot;,
         </case>
         <case>
           <duration>1.503</duration>
-          <className>com.sprite.cloud.automation.framework.api.functional.PutPetTest</className>
+          <className>com.sprite.cloud.automation.framework.api.petstorepet.PutPetTest</className>
           <testName>editPetSuccessfullyTest</testName>
           <skipped>false</skipped>
           <stdout>[INFO ] 04 Nov 13:51:07 [c.s.c.a.f.b.TestBase : 82] - Selenium Driver closed

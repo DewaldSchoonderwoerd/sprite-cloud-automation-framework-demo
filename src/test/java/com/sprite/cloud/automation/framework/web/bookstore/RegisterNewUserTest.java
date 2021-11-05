@@ -21,12 +21,9 @@ public class RegisterNewUserTest extends TestBase {
 
     private RegistrationPage registrationPage;
 
-    @BeforeClass
+    @BeforeClass(alwaysRun = true)
     @Parameters({"environment"})
     private void setup(@Optional(QA) String environment){
-        url = WebPropertyUtils.getWebUrl("tools", environment);
-
-        driver.navigate().to(url + "/checkbox");
         LOG.info("Navigating to URL: " + url);
 
         registrationPage = new RegistrationPage(driver);
@@ -34,7 +31,7 @@ public class RegisterNewUserTest extends TestBase {
 
     @Test(groups = {WIP})
     public void registerUser(){
-        driver.navigate().to(url + "/register");
+        registrationPage.goTo();
 
         registrationPage.selectReCaptcha();
     }

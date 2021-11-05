@@ -1,7 +1,7 @@
 package com.sprite.cloud.automation.framework.base.api.resource.petstore.v2;
 
-import com.sprite.cloud.automation.framework.base.api.models.petstore.v2.postPet.request.PostPetRequest;
-import com.sprite.cloud.automation.framework.base.api.models.petstore.v2.putpet.request.PutPetRequest;
+import com.sprite.cloud.automation.framework.base.api.models.petstore.v2.pet.postpet.request.PostPetRequest;
+import com.sprite.cloud.automation.framework.base.api.models.petstore.v2.pet.putpet.request.PutPetRequest;
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
@@ -20,4 +20,9 @@ public interface PetResource {
 
     @PUT
     Response editPet(PutPetRequest putPetRequest);
+
+    @GET
+    @Path("/{petId}")
+    Response getPetByPetId(@PathParam("petId") int petId);
+
 }

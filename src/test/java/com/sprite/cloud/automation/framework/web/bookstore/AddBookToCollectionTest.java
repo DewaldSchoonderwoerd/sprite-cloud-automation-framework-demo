@@ -33,7 +33,7 @@ public class AddBookToCollectionTest extends TestBase {
     private BookDetailPage bookDetailPage;
     private DeleteBookModal deleteBookModal;
 
-    @BeforeClass
+    @BeforeClass(alwaysRun = true)
     @Parameters({"environment"})
     private void setup(@Optional(QA) String environment){
         loginPage = new LoginPage(driver);

@@ -29,7 +29,7 @@ public class LoginTest extends TestBase {
     private LoginPage loginPage;
     private ProfilePage profilePage;
 
-    @BeforeClass
+    @BeforeClass(alwaysRun = true)
     private void setup() {
         loginPage = new LoginPage(driver);
         profilePage = new ProfilePage(driver);
