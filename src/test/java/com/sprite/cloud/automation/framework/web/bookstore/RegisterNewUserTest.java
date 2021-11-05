@@ -11,8 +11,7 @@ import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 import static com.sprite.cloud.automation.framework.base.constants.Environments.QA;
-import static com.sprite.cloud.automation.framework.base.constants.TestGroups.REGRESSION;
-import static com.sprite.cloud.automation.framework.base.constants.TestGroups.SMOKE;
+import static com.sprite.cloud.automation.framework.base.constants.TestGroups.*;
 
 public class RegisterNewUserTest extends TestBase {
 
@@ -33,8 +32,8 @@ public class RegisterNewUserTest extends TestBase {
         registrationPage = new RegistrationPage(driver);
     }
 
-    @Test(groups = {SMOKE, REGRESSION})
-    public void yomama(){
+    @Test(groups = {WIP})
+    public void registerUser(){
         driver.navigate().to(url + "/register");
 
         registrationPage.selectReCaptcha();
