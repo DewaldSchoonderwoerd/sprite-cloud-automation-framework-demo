@@ -82,4 +82,4 @@ Step 4: Select a option and run
 
 Currently Calliope upload will only trigger automatically through Jenkins pipeline build
 
-[Calliope Dashboard](https://app.calliope.pro/companies/1072)
+[Calliope Dashboard](https://app.calliope.pro/profiles/3792)

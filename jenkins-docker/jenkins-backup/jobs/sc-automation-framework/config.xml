@@ -127,15 +127,15 @@
             steps{
                 script{
                     
-                    def reportPath = findFiles(glob: &quot;**/testng-results.xml&quot;)[0].path
-                    def reportAbsolutePath = new File(env.WORKSPACE, reportPath).getParent() +&quot;/testng-results.xml&quot;
+                    def reportPath = findFiles(glob: &quot;**/target/**/TEST-TestSuite.xml&quot;)[-1].path
+                    def reportAbsolutePath = new File(env.WORKSPACE, reportPath).getParent() +&quot;/TEST-TestSuite.xml&quot;
                     
                     echo &quot;TestNG Results Report Absolute Path: &quot; + reportAbsolutePath
                     echo &quot;Uploading testng-results.xml to Calliope&quot;
                     
                     final def (String fileUploadResponse, String fileUploadCode) =
                     sh(script:
-                        &quot;curl -s -w &apos;\n%{response_code}&apos; -X POST --header &apos;accept: application/json&apos; --header &apos;x-api-key: ${API_KEY}&apos; --header &apos;Content-Type: multipart/form-data&apos; --form &apos;file[]=@\&quot;${reportAbsolutePath}\&quot;&apos; --form &apos;os=\&quot;windows\&quot;&apos; --form &apos;platform=\&quot;web\&quot;&apos; --form &apos;build=\&quot;50\&quot;&apos; --form &apos;envelope=\&quot;false\&quot;&apos; --form &apos;smart=\&quot;true\&quot;&apos; https://app.calliope.pro/api/v2/profile/${PROFILE_ID}/import/testng -v&quot;,
+                        &quot;curl -s -w &apos;\n%{response_code}&apos; -X POST --header &apos;accept: application/json&apos; --header &apos;x-api-key: ${API_KEY}&apos; --header &apos;Content-Type: multipart/form-data&apos; --form &apos;file[]=@\&quot;${reportAbsolutePath}\&quot;&apos; --form &apos;os=\&quot;linux\&quot;&apos; --form &apos;platform=\&quot;${testSuite}\&quot;&apos; --form &apos;build=\&quot;${env.BUILD_NUMBER}\&quot;&apos; --form &apos;envelope=\&quot;false\&quot;&apos; --form &apos;smart=\&quot;true\&quot;&apos; https://app.calliope.pro/api/v2/profile/${PROFILE_ID}/import -v&quot;,
                         
                         returnStdout: true
                     )
@@ -156,6 +156,12 @@
                         error &apos;Unable upload report to Calliope!&apos;
                     }
                 }
+            }
+        }
+        
+        stage(&quot;Clean up workspace&quot;) {
+            steps{
+                cleanWs()
             }
         }
     }
