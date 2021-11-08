@@ -1,6 +1,5 @@
 package com.sprite.cloud.automation.framework.base.web.pom.BookStoreApplicationPageObjects;
 
-import com.sprite.cloud.automation.framework.base.TestBase;
 import com.sprite.cloud.automation.framework.base.web.WebPageHelper;
 import com.sprite.cloud.automation.framework.base.web.WebPropertyUtils;
 import org.openqa.selenium.By;
@@ -14,7 +13,7 @@ import org.testng.Assert;
 
 import java.util.List;
 
-import static com.sprite.cloud.automation.framework.base.TestBase.environment;
+import static com.sprite.cloud.automation.framework.base.TestBase.ENVIRONMENT;
 
 public class ProfilePage extends WebPageHelper {
 
@@ -50,7 +49,7 @@ public class ProfilePage extends WebPageHelper {
     private WebElement deleteAllBooksButton;
 
     public void goToPage(){
-        String baseUrl = WebPropertyUtils.getWebUrl("tools", environment);
+        String baseUrl = WebPropertyUtils.getWebUrl("tools", ENVIRONMENT);
 
         driver.navigate().to(baseUrl + "/profile");
         LOG.info("Navigating to URL: " + baseUrl);

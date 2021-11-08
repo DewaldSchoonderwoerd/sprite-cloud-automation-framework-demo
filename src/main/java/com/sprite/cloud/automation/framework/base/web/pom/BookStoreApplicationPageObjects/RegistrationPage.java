@@ -12,7 +12,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import static com.sprite.cloud.automation.framework.base.TestBase.environment;
+import static com.sprite.cloud.automation.framework.base.TestBase.ENVIRONMENT;
 
 public class RegistrationPage extends WebPageHelper {
 
@@ -43,7 +43,7 @@ public class RegistrationPage extends WebPageHelper {
     }
 
     public void goTo(){
-        String baseUrl = WebPropertyUtils.getWebUrl("tools", environment);
+        String baseUrl = WebPropertyUtils.getWebUrl("tools", ENVIRONMENT);
 
         driver.navigate().to(baseUrl + "/register");
         LOG.info("Navigating to URL: " + baseUrl);

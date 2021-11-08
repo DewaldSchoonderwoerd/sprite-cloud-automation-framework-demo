@@ -15,22 +15,15 @@ public class WebPropertyUtils {
     private static final Logger LOG = LoggerFactory.getLogger(WebPropertyUtils.class);
 
     private static Properties webUrlProperties = null;
-    private static Properties remoteWebDriverProperties = null;
 
     static {
         LOG.info("Loading mandatory web properties...");
         webUrlProperties = mandatoryFileLoad(basePath() + "webUrl.properties");
-//        remoteWebDriverProperties = mandatoryFileLoad(basePath() + "remoteWebDriver.properties");
     }
 
     public static String getWebUrlDetails(String key) {
         return webUrlProperties.getProperty(key);
     }
-
-    public static String getRemoteWebDriverProperties(String key) {
-        return remoteWebDriverProperties.getProperty(key);
-    }
-
 
     public static String getWebUrl(String key, String environment) {
         if (key.isEmpty()) {

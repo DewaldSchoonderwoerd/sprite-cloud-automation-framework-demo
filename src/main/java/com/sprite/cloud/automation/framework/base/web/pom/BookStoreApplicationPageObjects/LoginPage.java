@@ -9,7 +9,7 @@ import org.openqa.selenium.support.PageFactory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import static com.sprite.cloud.automation.framework.base.TestBase.environment;
+import static com.sprite.cloud.automation.framework.base.TestBase.ENVIRONMENT;
 
 public class LoginPage extends WebPageHelper {
 
@@ -30,7 +30,7 @@ public class LoginPage extends WebPageHelper {
     private WebElement loginButton;
 
     public void goTo(){
-        String baseUrl = WebPropertyUtils.getWebUrl("tools", environment);
+        String baseUrl = WebPropertyUtils.getWebUrl("tools", ENVIRONMENT);
 
         driver.navigate().to(baseUrl + "/login");
         LOG.info("Navigating to URL: " + baseUrl);
