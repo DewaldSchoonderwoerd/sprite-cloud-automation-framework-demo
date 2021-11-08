@@ -3,16 +3,13 @@ package com.sprite.cloud.automation.framework.base.web;
 import com.google.common.base.Function;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.testng.Assert;
 
 import java.time.Duration;
-import java.util.List;
 
 public class WebPageHelper {
 
@@ -42,7 +39,7 @@ public class WebPageHelper {
 
     public void waitForAlertToBePresent() {
         wait.ignoring(NoAlertPresentException.class)
-            .until(ExpectedConditions.alertIsPresent());
+                .until(ExpectedConditions.alertIsPresent());
     }
 
     public void waitForElement(WebElement element) {
@@ -135,7 +132,7 @@ public class WebPageHelper {
 
     public void verifyElementDisable(WebElement element) {
         try {
-            WebElement webElement = new WebDriverWait(driver, 10).until(ExpectedConditions.visibilityOf(element));
+            WebElement webElement = new WebDriverWait(driver, Duration.ofSeconds(10)).until(ExpectedConditions.visibilityOf(element));
             Assert.assertTrue(!webElement.isEnabled());
         } catch (Exception e) {
             LOG.error("Element is enabled" + e.getMessage());
