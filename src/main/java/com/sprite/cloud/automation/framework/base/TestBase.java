@@ -9,7 +9,6 @@ import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.testng.ITestResult;
 import org.testng.annotations.*;
 
 import java.io.IOException;
