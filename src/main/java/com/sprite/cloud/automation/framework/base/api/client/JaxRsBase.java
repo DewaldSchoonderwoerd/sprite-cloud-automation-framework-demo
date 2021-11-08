@@ -2,6 +2,7 @@ package com.sprite.cloud.automation.framework.base.api.client;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.jaxrs.json.JacksonJsonProvider;
+import com.sprite.cloud.automation.framework.base.TestBase;
 import com.sprite.cloud.automation.framework.base.api.client.interceptors.HttpLogger;
 import com.sprite.cloud.automation.framework.base.api.resource.petstore.v2.PetResource;
 import com.sprite.cloud.automation.framework.base.api.resource.petstore.v2.StoreResource;
@@ -25,15 +26,10 @@ public class JaxRsBase {
 
     public static JaxRsBase baseRequest = null;
 
-    public String env;
-
-    protected JaxRsBase(String env) {
-        this.env = env;
-    }
-
     public static JaxRsBase getInstance() {
         if (baseRequest == null) {
-            baseRequest = new JaxRsBase(PROPERTIES.getProperty("environment"));
+            LOG.info("Setting up new instance of JaxRsBase");
+            baseRequest = new JaxRsBase();
             baseRequest.setObjectMapper(new ObjectMapper());
         }
         return baseRequest;
@@ -42,7 +38,7 @@ public class JaxRsBase {
     private ObjectMapper objectMapper;
 
     protected <T> T getResource(Class<T> resourceClass, String key) {
-        String baseUrl = EndpointLoader.getApiEndpoint(key, env);
+        String baseUrl = EndpointLoader.getApiEndpoint(key, TestBase.ENVIRONMENT);
         List<Object> providers = new ArrayList<>();
         providers.add(new JacksonJsonProvider(objectMapper));
         providers.add(new HttpLogger());

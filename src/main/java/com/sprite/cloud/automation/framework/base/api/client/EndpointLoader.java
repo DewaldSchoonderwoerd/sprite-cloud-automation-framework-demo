@@ -5,7 +5,11 @@ import org.slf4j.LoggerFactory;
 
 import java.io.File;
 import java.io.FileReader;
+import java.util.Locale;
 import java.util.Properties;
+
+import static com.sprite.cloud.automation.framework.base.constants.Environments.QA;
+import static com.sprite.cloud.automation.framework.base.constants.Environments.STAGING;
 
 public class EndpointLoader {
 
@@ -35,17 +39,11 @@ public class EndpointLoader {
     }
 
     public static String getApiEndpoint(String key, String env) {
-        String staging = "staging";
-        String qa = "qa";
-        String production = "production";
-
-        if (env.equalsIgnoreCase(staging)) {
-            key = staging + "." + key;
-        } else if (env.equalsIgnoreCase(qa)) {
-            key = qa + "." + key;
-        } else if (env.equalsIgnoreCase(production)) {
-            key = production + "." + key;
-        } else {
+        if (env.equalsIgnoreCase(STAGING)) {
+            key = STAGING.toLowerCase() + "." + key;
+        } else if (env.equalsIgnoreCase(QA)) {
+            key = QA.toLowerCase() + "." + key;
+        }  else {
             throw new ApiAutomationException("Please specify environment");
         }
         String endpoint = EndpointLoader.getEndpointsProperties(key);
