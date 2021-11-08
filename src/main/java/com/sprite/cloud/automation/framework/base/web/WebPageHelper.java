@@ -270,25 +270,25 @@ public class WebPageHelper {
     }
 
     public By getByTypeAndValue(String type, String value) {
-        String typpe = type.toLowerCase();
+        String inputType = type.toLowerCase();
         By by = By.id(value);
 
-        if (typpe.equalsIgnoreCase(ID)) {
+        if (inputType.equalsIgnoreCase(ID)) {
             by = By.id(value);
             LOG.info("finding element by id => " + value);
 
-        } else if (typpe.equalsIgnoreCase(XPATH)) {
+        } else if (inputType.equalsIgnoreCase(XPATH)) {
             by = By.xpath(value);
             LOG.info("finding element by xpath => " + value);
 
-        } else if (typpe.equalsIgnoreCase(TEXT)) {
+        } else if (inputType.equalsIgnoreCase(TEXT)) {
             by = By.xpath("//*[.='" + value + "']");
             LOG.info("finding element by text => " + value);
 
-        } else if (typpe.equalsIgnoreCase(CONTAINS)) {
+        } else if (inputType.equalsIgnoreCase(CONTAINS)) {
             by = By.xpath("//*[contains(.,'" + value + "')]");
             LOG.info("finding element by contains => " + value);
-        } else if (typpe.equalsIgnoreCase(STARTS_WITH)) {
+        } else if (inputType.equalsIgnoreCase(STARTS_WITH)) {
             by = By.xpath("//*[starts-with(text(),'" + value + "')]");
             LOG.info("finding element by starts-with => " + value);
         }
