@@ -5,7 +5,6 @@ import org.slf4j.LoggerFactory;
 
 import java.io.File;
 import java.io.FileReader;
-import java.util.Locale;
 import java.util.Properties;
 
 import static com.sprite.cloud.automation.framework.base.constants.Environments.QA;

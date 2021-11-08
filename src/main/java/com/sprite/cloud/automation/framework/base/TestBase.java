@@ -9,8 +9,10 @@ import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.testng.ITestResult;
 import org.testng.annotations.*;
 
+import java.io.IOException;
 import java.net.URL;
 import java.time.Duration;
 import java.util.Properties;
@@ -83,8 +85,9 @@ public class TestBase {
         }
     }
 
+    @Parameters({"platformType"})
     @AfterClass(alwaysRun = true)
-    public void tearDownDriver() {
+    public void tearDownDriver() throws IOException {
         if (driver != null) driver.quit();
         LOG.info("Selenium Driver closed");
     }

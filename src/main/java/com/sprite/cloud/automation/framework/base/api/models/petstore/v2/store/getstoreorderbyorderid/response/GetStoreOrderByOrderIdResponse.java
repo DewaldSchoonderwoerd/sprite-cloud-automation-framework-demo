@@ -1,7 +1,5 @@
 package com.sprite.cloud.automation.framework.base.api.models.petstore.v2.store.getstoreorderbyorderid.response;
 
-import javax.annotation.Generated;
-
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 

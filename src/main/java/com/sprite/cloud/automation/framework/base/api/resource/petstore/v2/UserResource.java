@@ -1,6 +1,5 @@
 package com.sprite.cloud.automation.framework.base.api.resource.petstore.v2;
 
-import com.sprite.cloud.automation.framework.base.api.models.petstore.v2.pet.postpet.request.PostPetRequest;
 import com.sprite.cloud.automation.framework.base.api.models.petstore.v2.user.postuser.request.PostUserRequest;
 
 import javax.ws.rs.*;

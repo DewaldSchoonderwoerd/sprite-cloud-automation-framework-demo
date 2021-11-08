@@ -1,7 +1,6 @@
 package com.sprite.cloud.automation.framework.web.bookstore;
 
 import com.sprite.cloud.automation.framework.base.TestBase;
-import com.sprite.cloud.automation.framework.base.web.WebPropertyUtils;
 import com.sprite.cloud.automation.framework.base.web.pom.BookStoreApplicationPageObjects.RegistrationPage;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -11,7 +10,7 @@ import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 import static com.sprite.cloud.automation.framework.base.constants.Environments.QA;
-import static com.sprite.cloud.automation.framework.base.constants.TestGroups.*;
+import static com.sprite.cloud.automation.framework.base.constants.TestGroups.WIP;
 
 public class RegisterNewUserTest extends TestBase {
 

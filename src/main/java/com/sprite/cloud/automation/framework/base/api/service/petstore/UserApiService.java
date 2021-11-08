@@ -13,7 +13,6 @@ import org.slf4j.LoggerFactory;
 import org.testng.Assert;
 
 import javax.ws.rs.core.Response;
-
 import java.util.HashMap;
 
 import static com.sprite.cloud.automation.framework.base.constants.UserStatus.ACTIVE;

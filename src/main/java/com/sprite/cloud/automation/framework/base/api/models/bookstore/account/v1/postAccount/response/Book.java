@@ -1,7 +1,5 @@
 package com.sprite.cloud.automation.framework.base.api.models.bookstore.account.v1.postAccount.response;
 
-import javax.annotation.Generated;
-
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
